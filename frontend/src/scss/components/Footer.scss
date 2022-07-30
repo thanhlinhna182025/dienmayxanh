@@ -1,0 +1,48 @@
+@use '../abstracts/' as *;
+@use '../base/' as *;
+
+.footer {
+    width: 100%;
+    background-color: #fff;
+    @include grid(250px, 3rem);
+    padding: 2rem 5rem;
+    .footer__col {
+        ul {
+            @include flex-col();
+            gap: 1rem;
+            li {
+                a {
+                    color: $clr-text-gray;
+                    &:hover {
+                        color: $clr-text-blue;
+                    }
+                    strong {
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+        .social__container {
+            @include flex-col();
+            gap: 2rem;
+            h5 {
+                font-size: 2rem;
+                font-weight: 600;
+            }
+            .social__item {
+                a {
+                    i {
+                        margin-right: 1rem;
+                        font-size: 2rem;
+                    }
+                    .facebookicon {
+                        color: $clr-facebook;
+                    }
+                    .youtubeicon {
+                        color: $clr-youtube;
+                    }
+                }
+            }
+        }
+    }
+}

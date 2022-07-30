@@ -1,0 +1,71 @@
+@use '../abstracts/' as *;
+@use '../base/' as *;
+.cartproduct {
+    background-color: #fff;
+    padding: 0.5rem;
+    @include border();
+    @include flex-col();
+    gap: 3rem;
+    border-radius: 0.5rem;
+    .cartproduct__image-container {
+        height: 22rem;
+        @include flex-row();
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .cartproduct__info-container {
+        @include flex-col();
+        width: 100%;
+        gap: 1rem;
+        .promotion__container {
+            @include flex-row($wrap: nowrap, $justify: flex-start);
+            width: 100%;
+            gap: 1rem;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background-color: $clr-bg-three;
+            img {
+                width: 2.5rem;
+                object-fit: cover;
+            }
+            span {
+                font-size: 1.6rem;
+                font-weight: 500;
+                color: #fff;
+            }
+        }
+        .name,
+        .brand {
+            font-size: 1.8rem;
+            font-weight: normal;
+            color: $clr-text-gray;
+        }
+        .price {
+            margin-right: 1rem;
+            color: $clr-text-blue;
+            font-size: 1.8rem;
+            font-weight: 700;
+            b {
+                vertical-align: text-top;
+                font-size: 1.4rem;
+                position: relative;
+                &::after {
+                    content: '';
+                    width: 100%;
+                    height: 1.5px;
+                    background-color: $clr-text-blue;
+                    bottom: 0;
+                    left: 0;
+                    position: absolute;
+                }
+            }
+        }
+        .discountpercent {
+            color: $clr-text-red;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+    }
+}

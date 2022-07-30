@@ -1,0 +1,18 @@
+@use '../base/' as *;
+.btn {
+    background-color: #fff;
+    color: $clr-text-gray;
+    padding: 1.5rem 2rem;
+    border-radius: 0.4rem;
+    font-size: 1.4rem;
+    text-align: center;
+    border: none;
+    width: 34rem;
+    line-height: 1.6rem;
+    cursor: pointer;
+    i {
+        font-size: inherit;
+        transform: translateY(10%);
+        color: $clr-bg-one;
+    }
+}

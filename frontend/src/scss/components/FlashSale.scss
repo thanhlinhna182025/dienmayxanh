@@ -1,0 +1,96 @@
+@use '../base/' as *;
+@use '../abstracts/' as *;
+.flash__sale {
+    background-color: $clr-bg-four;
+    border-radius: 0.5rem;
+    padding: 3rem;
+    width: 100%;
+    gap: 3rem 0;
+    margin-bottom: 5rem;
+    @include flex-col();
+    .flash__sale-info {
+        width: 100%;
+        @include flex-row($align: flex-start);
+        .count__down-block {
+            @include flex-row($justify: flex-start);
+            flex: 1;
+            gap: 0 1rem;
+            .count__down-right {
+                img {
+                    width: 3.2rem;
+                    height: 7rem;
+                    display: block;
+                    object-fit: cover;
+                }
+            }
+            .count__down-left {
+                @include flex-col();
+                gap: 1rem 0;
+                h2 {
+                    font-size: 2.6rem;
+                    font-weight: 700;
+                    color: $clr-text-yellow;
+                }
+                .count__down-timer {
+                    @include flex-row();
+                    gap: 0 3rem;
+                    span {
+                        font-size: 1.8rem;
+                        font-weight: 700;
+                        color: #fff;
+                    }
+                    .timer {
+                        @include flex-row();
+                        gap: 0 1rem;
+                        .days,
+                        .hours,
+                        .minutes,
+                        .seconds {
+                            font-size: 1.8rem;
+                            font-weight: 700;
+                            padding: 0.5rem;
+                            background-color: black;
+                            border-radius: 0.5rem;
+                            color: #fff;
+                            min-width: 6rem;
+                            text-align: center;
+                            position: relative;
+                        }
+                        .days,
+                        .hours,
+                        .minutes {
+                            &::after {
+                                content: ':';
+                                color: #fff;
+                                position: absolute;
+                                top: 0;
+                                right: -7px;
+                                transform: translateY(25%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .upcoming {
+            flex: 1;
+            @include flex-row();
+            .upcoming__item {
+                flex: 1;
+                @include flex-col($align: center);
+                gap: 1rem 0;
+                cursor: pointer;
+                position: relative;
+                p {
+                    color: #fff;
+                    font-size: 1.8rem;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+    .flash__sale-main {
+        width: 100%;
+        @include grid(200px);
+    }
+}

@@ -1,0 +1,51 @@
+@use '../abstracts/' as *;
+@use '../base/' as *;
+.promotion {
+    @include flex-col();
+    padding: 3rem;
+    background-color: $clr-bg-one;
+    border-radius: 1rem;
+    width: 100%;
+    gap: 3rem;
+    margin-bottom: 5rem;
+    .promotion__top {
+        width: 100%;
+        @include flex-col();
+        gap: 1rem;
+        .promotion__image-container {
+            width: 100%;
+            img {
+                width: 1227px;
+                object-fit: cover;
+                margin-left: -3rem;
+                margin-top: -3rem;
+            }
+        }
+        .promotion__list-products {
+            width: 100%;
+            @include flex-row($wrap: nowrap);
+            padding: 0 5rem;
+            .promotion__list-item {
+                padding: 1rem 2rem;
+                background-color: #fff;
+                border-radius: 0.5rem;
+                color: $clr-text-gray;
+                a {
+                    cursor: pointer;
+                    font-weight: 600;
+                    &:hover {
+                        color: $clr-text-blue;
+                    }
+                }
+            }
+        }
+    }
+    .promotion__main {
+        width: 100%;
+        @include grid($value: 200px);
+    }
+    .promotion__bottom {
+        width: 100%;
+        @include flex-row($justify: center);
+    }
+}

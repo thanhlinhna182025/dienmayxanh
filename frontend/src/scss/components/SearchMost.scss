@@ -1,0 +1,24 @@
+@use '../abstracts/' as *;
+@use '../base/' as *;
+
+.searchmost {
+    width: 100%;
+    @include flex-col();
+    gap: 3rem;
+    margin-bottom: 5rem;
+    h5 {
+        font-size: 2.4rem;
+        font-weight: 600;
+    }
+    .searchmost__list {
+        @include flex-row($justify: flex-start);
+        gap: 3rem;
+        .searchmost__list-item {
+            padding: 1rem 2rem;
+            background-color: #fff;
+            border-radius: 2rem;
+            color: $clr-text-black;
+            font-weight: 600;
+        }
+    }
+}

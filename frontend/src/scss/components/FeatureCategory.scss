@@ -1,0 +1,42 @@
+@use '../abstracts/' as *;
+@use '../base/' as *;
+.feature {
+    @include flex-col();
+    width: 100%;
+    background-color: $clr-bg-two;
+    border-radius: 1rem;
+    padding: 3rem;
+    gap: 3rem;
+    margin-bottom: 5rem;
+    h5 {
+        font-size: 2.4rem;
+        font-weight: 600;
+    }
+    .feature__list {
+        @include grid($value: 100px, $gap: 2rem);
+        width: 100%;
+        .feature__item {
+            @include flex-col($justify: flex-start);
+            gap: 1rem;
+
+            .feature__image-container {
+                width: 100%;
+                border-radius: 1rem;
+                padding: 1rem;
+                overflow: hidden;
+                background-color: #fff;
+                img {
+                    width: 100%;
+                    display: block;
+                    object-fit: cover;
+                }
+            }
+            a {
+                font-size: 1.8rem;
+                color: #fff;
+                text-align: center;
+                cursor: pointer;
+            }
+        }
+    }
+}

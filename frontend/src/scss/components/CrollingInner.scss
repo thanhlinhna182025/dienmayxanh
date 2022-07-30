@@ -1,0 +1,29 @@
+@use '../abstracts/' as *;
+@use '../base/' as *;
+.crolling__inner {
+    @include flex-row($justify: center, $align: flex-start);
+    width: fit-content;
+    margin: 0 auto;
+    gap: 2rem;
+    .crolling__inner-item {
+        @include flex-col($align: center, $justify: center);
+        gap: 1rem;
+        flex: 1;
+        p {
+            text-align: center;
+            color: $clr-text-blue;
+        }
+        .crolling__inner-item__container {
+            @include border($color: $clr-bg-one);
+            @include flex-row($justify: center);
+            background-color: #fff;
+            width: 5rem;
+            height: 5rem;
+            i {
+                font-size: 2rem;
+                font-weight: 700;
+                color: $clr-text-blue;
+            }
+        }
+    }
+}

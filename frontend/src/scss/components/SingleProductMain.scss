@@ -1,0 +1,12 @@
+@use '../abstracts/' as *;
+@use '../base/' as *;
+.single__product-main {
+    @include flex-row($wrap: nowrap);
+    width: 100%;
+    .single__product-left {
+        flex: 3;
+    }
+    .single__product-right {
+        flex: 2;
+    }
+}
