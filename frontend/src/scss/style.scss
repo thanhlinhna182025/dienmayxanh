@@ -1,15 +1,47 @@
-@use './abstracts/' as *;
-@use './base/' as *;
-@use './components/' as *;
-@use './layout/' as *;
-@use 'swiper/css';
+@use "./abstracts/" as *;
+@use "./base/" as *;
+@use "./components/" as *;
+@use "./layout/" as *;
+@use "swiper/css";
 
 .container {
-    width: 100%;
+  width: 100%;
 }
 .main {
-    padding: 0 5rem;
+  padding: 0 5rem;
 }
 .product__screen {
-    padding: 2rem 5rem;
+  padding: 2rem 5rem;
+  background-color: #fff;
+}
+.line__break {
+  width: 100%;
+  height: 2px;
+  background-color: $clr-bg-one;
+  margin: 1.5rem 0;
+}
+.height__break {
+  height: auto;
+  width: 2px;
+  background-color: $clr-bg-one;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.box {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+.line {
+  background-color: $clr-bg-one;
+  margin: 1.5rem 0;
+}
+.line--row {
+  width: 100%;
+  height: 1px;
+}
+.line--col {
+  height: 100%;
+  width: 1px;
 }

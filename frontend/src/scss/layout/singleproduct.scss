@@ -3,9 +3,4 @@
 .single__product {
     @include flex-col();
 }
-.line__break {
-    width: 100%;
-    height: 2px;
-    background-color: $clr-bg-one;
-    margin: 1.5rem 0;
-}
+

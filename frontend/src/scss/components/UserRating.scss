@@ -1,0 +1,44 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+.user__rating {
+  width: 100%;
+  margin-top: 2rem;
+  ul {
+    width: 100%;
+    li {
+      width: 100%;
+      @include flex-row($justify: flex-start);
+      gap: 1rem;
+      .star__wrapper,
+      .star__percent {
+        width: 3rem;
+      }
+      .star__wrapper {
+        span {
+          color: $clr-text-gray;
+        }
+        i {
+          font-size: 1.2rem;
+        }
+      }
+      .timeline__star {
+        width: 50%;
+        height: 6px;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 0.5px;
+
+        .timing {
+          width: 20%;
+          background-color: $clr-star;
+          z-index: 999;
+          height: 100%;
+        }
+      }
+      .star__percent {
+        font-size: 1.4rem;
+        color: $clr-text-blue;
+        font-weight: 600;
+      }
+    }
+  }
+}

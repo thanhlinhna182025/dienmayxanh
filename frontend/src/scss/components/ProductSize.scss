@@ -1,0 +1,14 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.product__size {
+  @include flex-row($justify: flex-start);
+  gap: 2rem;
+  .size {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    width: 8rem;
+    text-align: center;
+    border-radius: 4px;
+  }
+}

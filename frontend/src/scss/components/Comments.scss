@@ -1,0 +1,86 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.comments {
+  width: 100%;
+  .comment__list {
+    @include flex-col();
+    gap: 3rem;
+    .comment__item {
+      width: 100%;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: $clr-bg-one;
+        left: 0;
+        bottom: -1.5rem;
+      }
+      &:last-child {
+        &::after {
+          width: 0;
+        }
+      }
+
+      @include flex-col();
+      gap: 0.5rem;
+      .item-top {
+        @include flex-row();
+        gap: 2rem;
+        span {
+          font-size: 1.6rem;
+          font-weight: 600;
+        }
+        div {
+          span {
+            color: $clr-text-blue;
+          }
+          i {
+            color: $clr-bg-two;
+            font-size: 1.2rem;
+          }
+        }
+      }
+      .item-center {
+        .rating {
+          span {
+            i {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+      .item-bottom {
+        span {
+          color: $clr-text-gray;
+        }
+      }
+    }
+  }
+  .comment__btn-container {
+    @include flex-row($wrap: nowrap);
+    gap: 2rem;
+    button {
+      @include flex-row($justify: center);
+      width: 50%;
+      padding: 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      color: #fff;
+      &:first-child {
+        background-color: $clr-bg-one;
+      }
+      &:last-child {
+        background-color: #fff;
+        border: 1px solid $clr-bg-one;
+        color: $clr-text-blue;
+      }
+      i {
+        margin: 0 1rem;
+        font-size: 1.6rem;
+      }
+    }
+  }
+}

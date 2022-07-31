@@ -1,0 +1,24 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.reviews {
+  padding: 3rem;
+  @include border();
+  border-radius: 1rem;
+  p {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: $clr-text-blue;
+  }
+  .rating__container {
+    @include flex-row($align: stretch);
+    margin-right: 1rem;
+      flex: 1;
+      .rating__number {
+        font-size: 2rem;
+        font-weight: 600;
+        color: $clr-text-blue;
+      }
+  }
+}

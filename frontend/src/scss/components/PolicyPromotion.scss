@@ -1,0 +1,27 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+.infomation__promotion {
+  margin-bottom: 5rem;
+  .infomation__promotion-list {
+    @include flex-row($align: flex-start);
+    .infomation__promotion-item {
+      width: 50%;
+      i,
+      span {
+        color: $clr-text-gray;
+        font-size: 1.8rem;
+      }
+      i {
+        margin-right: 1rem;
+      }
+      b {
+        font-weight: 700;
+        color: $clr-black;
+      }
+      a {
+        font-size: 1.8rem;
+        color: $clr-text-blue;
+      }
+    }
+  }
+}
