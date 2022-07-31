@@ -1,0 +1,26 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+.online__discount-panel {
+  width: 100%;
+  @include flex-col($align: center, $justify: center);
+  gap: 1rem;
+  @include border();
+  .discount {
+    background-color: $clr-bg-three;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    color: #fff;
+    font-weight: 600;
+    span {
+      font-weight: 700;
+      color: $clr-text-yellow;
+    }
+  }
+  .remain {
+    background-color: #fff;
+    color: $clr-text-red;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+}
