@@ -1,0 +1,31 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+.techniqual__info {
+  @include flex-col;
+  gap: 1rem;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  ul {
+    @include flex-col();
+    gap: 1rem;
+    .techniqual__info-item {
+      width: 100%;
+      padding: 0.5rem;
+      &:nth-of-type(odd) {
+        background-color: #ccc;
+      }
+      @include flex-row();
+      .title {
+        flex: 1;
+        text-transform: capitalize;
+      }
+      .content {
+        flex: 2;
+        text-transform: capitalize;
+      }
+    }
+  }
+}

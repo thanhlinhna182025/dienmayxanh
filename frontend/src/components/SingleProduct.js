@@ -4,6 +4,9 @@ import CrollingInner from "./CrollingInner";
 import PolicyPromotion from "./PolicyPromotion";
 import Reviews from "./Reviews";
 import ProductSize from "./ProductSize";
+import OnlineDiscountPanel from "./OnlineDisCountPanel";
+import BlockButton from "./BlockButton";
+import TechniqualInfoProduct from "./TechniqualInfoProduct";
 
 const SingleProduct = {
   render: (singleProduct) => {
@@ -19,6 +22,9 @@ const SingleProduct = {
             </div>
             <div class="single__product-right">
               ${ProductSize.render(singleProduct)}
+              ${OnlineDiscountPanel.render(singleProduct)}
+              ${BlockButton.render()}
+              ${TechniqualInfoProduct.render(singleProduct)}
             </div>
         </div>
         </div>`;

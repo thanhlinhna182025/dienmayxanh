@@ -4,6 +4,7 @@
 .product__size {
   @include flex-row($justify: flex-start);
   gap: 2rem;
+  margin-bottom: 2rem;
   .size {
     padding: 1rem;
     border: 1px solid #ccc;

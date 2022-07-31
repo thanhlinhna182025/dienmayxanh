@@ -4,6 +4,7 @@
   width: 100%;
   @include flex-col($align: center, $justify: center);
   gap: 1rem;
+  margin-bottom: 3rem;
   @include border();
   .discount {
     background-color: $clr-bg-three;

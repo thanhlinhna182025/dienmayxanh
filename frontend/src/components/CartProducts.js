@@ -1,9 +1,13 @@
-import Rating from './Rating';
+import Rating from "./Rating";
 
 const CartProducts = {
-    render: (cartproduct) => {
-        console.log(cartproduct);
-        return `
+  render: (cartproduct) => {
+    const number = cartproduct.price;
+    let price = new Intl.NumberFormat("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    }).format(number);
+    return `
         <a href="/#/product/${cartproduct.id}">
             <div class="cartproduct">
                 <div class="cartproduct__image-container">
@@ -17,23 +21,21 @@ const CartProducts = {
                     <p class="name">${cartproduct.name}</p>
                     <p class="brand">${cartproduct.brand}</p>
                     <div >
-                        <span class="price">${(
-                            Math.round(cartproduct.price * 1000) / 1000
-                        ).toFixed(3)}<b>đ</b></span>
+                        <span class="price">${price}</span>
                         <span class="discountpercent">- ${
-                            cartproduct.promotion.discountpercent
+                          cartproduct.promotion.discountpercent
                         }%</span>
                     </div>
                     <div>
                         ${Rating.render({
-                            value: `${cartproduct.rate}`,
-                            text: `${cartproduct.reviews}`,
+                          value: `${cartproduct.rate}`,
+                          text: `${cartproduct.reviews}`,
                         })}
                     </div>
                 </div>
             </div>;
         </a>`;
-    },
+  },
 };
 
 export default CartProducts;
