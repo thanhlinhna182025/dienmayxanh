@@ -23,7 +23,7 @@ const SingleProduct = {
             <div class="single__product-right">
               ${ProductSize.render(singleProduct)}
               ${OnlineDiscountPanel.render(singleProduct)}
-              ${BlockButton.render()}
+              ${BlockButton.render(singleProduct)}
               ${TechniqualInfoProduct.render(singleProduct)}
             </div>
         </div>

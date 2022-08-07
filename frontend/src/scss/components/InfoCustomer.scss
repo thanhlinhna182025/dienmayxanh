@@ -1,0 +1,109 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+.info__customer {
+  background-color: $clr-bg-five;
+  .country__container {
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      border-bottom: 10px solid $clr-bg-five;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      top: 0;
+      transform: translateY(-100%);
+      left: 4rem;
+    }
+    @include flex-row($justify: flex-start, $wrap: wrap);
+    gap: 2rem;
+    width: 100%;
+
+    padding: 1rem;
+    border-radius: 5px;
+  }
+  .box__order {
+    @include flex-row($justify: flex-start);
+    gap: 2rem;
+    padding: 1rem;
+  }
+}
+.time {
+  button,
+  input {
+    width: calc(50% - 1rem);
+    padding: 1rem;
+    @include border;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  button {
+    position: relative;
+  }
+  button:after {
+    @include tri-down();
+  }
+}
+.carts {
+  width: 100%;
+  @include border();
+  padding: 1rem;
+  border-radius: 4px;
+  .cart__item {
+    width: 100%;
+    @include flex-row($justify: flex-start);
+    gap: 1rem;
+    .item__image-container {
+      flex: 1;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .item__info-container {
+      flex: 8;
+      @include flex-col();
+      gap: 1rem;
+      a {
+        font-size: 1.4rem;
+        color: $clr-text-blue;
+        font-weight: 600;
+      }
+      div {
+        @include flex-col();
+        gap: 1rem;
+      }
+    }
+  }
+}
+.customer__note {
+  input {
+    width: 100%;
+    padding: 1rem;
+    outline: none;
+    @include border();
+    border-radius: 4px;
+  }
+}
+.total__payment {
+  @include flex-col();
+  gap: 1rem;
+  div {
+    @include flex-row();
+    width: 100%;
+    span:nth-of-type(2) {
+      color: red;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+  }
+  button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    background: linear-gradient(180deg, #f79429, #f7712e);
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+  }
+}

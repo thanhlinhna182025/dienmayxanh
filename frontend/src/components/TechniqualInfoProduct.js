@@ -1,7 +1,6 @@
 const TechniqualInfoProduct = {
   render: (singleProduct) => {
     const techniqual = Object.entries(singleProduct.techniqual);
-    console.log(techniqual);
     return `
     <div class="techniqual__info">
         <h2>Thông số kỹ thuật ${singleProduct.name}</h2>

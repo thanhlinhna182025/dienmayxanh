@@ -39,7 +39,6 @@ module.exports = {
     publicPath: "/",
     clean: true,
   },
-  watch: true,
   module: {
     rules: [
       {

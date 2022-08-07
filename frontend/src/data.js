@@ -602,6 +602,7 @@ export const singleProduct = {
     name: "Sinh Nhật Giảm Giá Sốc",
     icon: "../assets/images/icon/birthdayicon.png",
     discountpercent: 10,
+    desc: "Tặng Combo vật tư (Dây điện từ dàn lạnh đến dàn nóng, Simili, miễn phí tối đa 5 mét ống đồng, ống nước) trị giá 850.000đ",
   },
   price: 6000000,
   rate: 4.5,
@@ -630,7 +631,7 @@ export const singleProduct = {
     type: "Tivi",
     system: "Tizen OS 6.0",
     apps: "Clip TVFPT PlayGalaxy Play (Fim+)MP3 ZingMyTVNetflixPOPS KidsSpotifyTrình duyệt webVieONYouTube",
-    tecknology:
+    technology:
       "Ambient ModeChuyển động mượt Motion XceleratorChuyển động ảnh mượt mà Auto Motion PlusDynamic Crystal ColorGiảm độ trễ chơi game Auto Low Latency Mode (ALLM)HDR10+Kiểm soát đèn nền UHD DimmingNâng cấp độ tương phản Contrast Enhancer",
     size: "Ngang 123.2 cm - Cao 76.8 cm - Dày 22.8 cm",
     release: 2021,
