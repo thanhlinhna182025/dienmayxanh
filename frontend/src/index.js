@@ -6,12 +6,13 @@ import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import Error404Screen from "./screens/Error404Screen";
 import AddToCartScreen from "./screens/AddToCartScreen";
-
+import OrderScreen from "./screens/OrderScreen";
 
 const routes = {
   "/": HomeScreen,
   "/product/:id": ProductScreen,
   "/product/:id/addtocart": AddToCartScreen,
+  "/order": OrderScreen,
 };
 
 const router = async () => {

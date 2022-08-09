@@ -90,7 +90,7 @@ const AddToCartScreen = {
                 <span>Tong tien :</span>
                 <span>${remain}</span>
               </div>
-              <button>DAT HANG</button>
+              <a href="/#/order">DAT HANG</a>
               <p>Ban co the chon hinh thuc thanh toan khi nhan hang</p>
             </div>
           </div>
