@@ -1,8 +1,81 @@
+import { getCountryData, getDistrictData, getWardData } from "../api";
 import InfoCustomer from "../components/InfoCustomer";
 import { singleProduct } from "../data";
 
 const AddToCartScreen = {
-  render: () => {
+  after_render: async () => {
+    const countryData = await getCountryData();
+    const city = document.getElementById("city");
+    const district = document.getElementById("district");
+    const ward = document.getElementById("ward");
+    const cityName = document.getElementById("cityName");
+    const districtName = document.getElementById("districtName");
+    const wardName = document.getElementById("wardName");
+    const dropdownCity = document.getElementById("dropdownCity");
+    const dropdownDictrict = document.getElementById("dropdownDistrict");
+    const dropdownWard = document.getElementById("dropdownWard");
+
+    city.addEventListener("click", () => {
+      dropdownCity.classList.toggle("active");
+      city.classList.toggle("anchor");
+      dropdownCity.innerHTML = `
+                    ${countryData
+                      .map(
+                        (country) =>
+                          `<a class="dropdown__item city" code="${country.code}">${country.name}</a>`
+                      )
+                      .join("\n")}
+                  `;
+      Array.from(document.getElementsByClassName("city")).forEach((c) => {
+        c.addEventListener("click", async () => {
+          cityName.innerText = c.textContent;
+          const districtData = await getDistrictData(c.attributes.code.value);
+          dropdownDictrict.classList.toggle("active");
+          district.classList.toggle("anchor");
+          dropdownDictrict.innerHTML = `${districtData.districts
+            .map(
+              (d) =>
+                `<a class="dropdown__item district" code="${d.code}">${d.name}</a>`
+            )
+            .join("\n")}`;
+          Array.from(document.getElementsByClassName("district")).forEach((d) =>
+            d.addEventListener("click", async (e) => {
+              e.stopPropagation();
+              districtName.innerText = d.textContent;
+              dropdownDictrict.classList.remove("active");
+              district.classList.remove("anchor");
+              const wardData = await getWardData(d.attributes.code.value);
+              dropdownWard.innerHTML = `${wardData.wards
+                .map(
+                  (w) =>
+                    `<a class="dropdown__item ward" code="${w.code}">${w.name}</a>`
+                )
+                .join("\n")}`;
+              dropdownWard.classList.toggle("active");
+              ward.classList.toggle("anchor");
+              Array.from(document.getElementsByClassName("ward")).forEach((w) =>
+                w.addEventListener("click", (e) => {
+                  e.stopPropagation();
+                  wardName.innerText = w.textContent;
+                  dropdownWard.classList.toggle("active");
+                  ward.classList.toggle("anchor");
+                })
+              );
+            })
+          );
+        });
+      });
+    });
+    district.addEventListener("click", () => {
+      dropdownDictrict.classList.toggle("active");
+      district.classList.toggle("anchor");
+    });
+    ward.addEventListener("click", () => {
+      dropdownWard.classList.toggle("active");
+      ward.classList.toggle("anchor");
+    });
+  },
+  render: async () => {
     const price = new Intl.NumberFormat("vi-VN", {
       style: "currency",
       currency: "VND",
@@ -20,7 +93,6 @@ const AddToCartScreen = {
       singleProduct.price -
         (singleProduct.price * singleProduct.promotion.discountpercent) / 100
     );
-
     return `
       <div class="popup__bg">
         <div class="add__to-cart">
@@ -82,7 +154,7 @@ const AddToCartScreen = {
               ${InfoCustomer.render(singleProduct)}
             </form>
             <div class="customer__note">
-              <input placeholder="Yeu cau khac (khong bat buoc)"/>
+              <input placeholder="Yeu cau khac (khong bat buoc)" class="box"/>
             </div>
             <div class="line line--row"></div>
             <div class="total__payment">
@@ -95,7 +167,8 @@ const AddToCartScreen = {
             </div>
           </div>
         </div>
-      </div>`;
+      </div>
+      `;
   },
 };
 

@@ -28,10 +28,9 @@
   margin-bottom: 2px;
 }
 .box {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 1rem;
+  width: 100%;
+  @include border();
+  padding: 1rem;
 }
 .line {
   background-color: $clr-bg-one;
@@ -57,4 +56,74 @@
   bottom: 0;
   height: fit-content;
   @include flex-col($align: center, $justify: center);
+}
+.country__container {
+  @include flex-row();
+  gap: 2rem;
+  .dropdown__container {
+    @include flex-row($align: flex-start, $justify: center);
+    gap: 2rem;
+    position: relative;
+    width: 100%;
+
+    input {
+      width: calc(50% - 2rem);
+    }
+  }
+}
+.dropdown {
+  width: calc(50% - 2rem);
+  position: relative;
+  button {
+    width: 100%;
+  }
+  .anchor {
+    display: block;
+    &::before {
+      @include tri();
+      top: 41px;
+      visibility: visible;
+    }
+  }
+}
+.dropdown__content {
+  position: absolute;
+  @include flex-row($align: flex-start, $justify: flex-start);
+  visibility: hidden;
+  gap: 1rem 2rem;
+  background-color: #fff;
+  width: 120%;
+  z-index: 999;
+  top: 4.5rem;
+  padding: 1rem;
+  max-height: 19rem;
+  overflow-y: scroll;
+  a {
+    width: calc(50% - 1rem);
+    text-align: left;
+    cursor: pointer;
+    &:hover {
+      color: $clr-text-blue;
+    }
+  }
+}
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}
+.l4 {
+  &::before {
+    left: 4rem;
+  }
+}
+.l20 {
+  &::before {
+    left: 20rem;
+  }
+}
+
+.active {
+  visibility: visible;
 }

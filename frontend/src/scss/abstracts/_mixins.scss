@@ -74,3 +74,16 @@
     transform: translateY(-50%);
   }
 }
+
+@mixin tri($bgc: #fff) {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: $bgc;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  position: absolute;
+  transform: rotate(45deg);
+  top: -5px;
+  z-index: 9999;
+}

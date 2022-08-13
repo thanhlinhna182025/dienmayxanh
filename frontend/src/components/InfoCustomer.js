@@ -1,15 +1,31 @@
 const InfoCustomer = {
   render: (singleProduct) => {
     return `
-    <div class="info__customer">
+    <div class="info__customer box">
       <div class="country__container time">
         <p>Chon dia chi nhan hang de biet thong tin phi van chuyen neu co</p>
-        <button class="country__button" >
-        Ho Chi Minh
-        </button>
-        <button class="dictrict__button" >Quan Binh Thanh</button>
-        <button class="ward__button" >Phuong 12</button>
-        <input placeholder="Số nhà ,tên đường"/>
+        <div class="dropdown__container">
+          <div class="dropdown">
+            <button class="country__button l4" id="city">
+              <span id="cityName">Chon tinh/thanh pho</span>
+              <div class="dropdown__content box left" id="dropdownCity"><div>
+            </button>
+          </div>
+          <div class="dropdown">
+            <button class="country__button l20" id="district">
+              <span id="districtName">Chon quan/huyen</span>
+              <div class="dropdown__content box right"id="dropdownDistrict">
+              </div>
+            </button>
+          </div>
+          <div class="dropdown">
+            <button class="country__button l4" id="ward">
+              <span id="wardName">Chon phuong/xa</span>
+              <div class="dropdown__content box left" id="dropdownWard"><div>
+            </button>
+          </div>
+          <input placeholder="Số nhà ,tên đường" />
+        </div>
       </div>
       <div class="box__order time">
         <div>
@@ -18,7 +34,7 @@ const InfoCustomer = {
         </div>
         <button>Hom nay ngay(08/07)</button>
         <button>Truoc 20h ngay</button>
-        <ul class="carts">
+        <ul class="carts box">
           <li class="cart__item">
             <div class="item__image-container">
               <img src="${singleProduct.image[0].url}"/>
