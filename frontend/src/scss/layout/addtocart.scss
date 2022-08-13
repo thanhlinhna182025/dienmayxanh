@@ -154,33 +154,3 @@
     }
   }
 }
-// .delivery__adress {
-//   @include flex-row();
-//   width: 100%;
-//   background-color: #ccc;
-//   gap: 2rem;
-//   box-sizing: border-box;
-//   padding: 1rem;
-//   * {
-//     width: calc(50% - 2rem);
-//     padding: 1rem;
-//     border-radius: 4px;
-//     @include border();
-//   }
-//   select {
-//     appearance: none;
-//     position: relative;
-//     outline: none;
-//   }
-//   select::after {
-//     content: " ";
-//     right: 0px;
-//     top: 0px;
-//     width: 2rem;
-//     border-top: 6px solid #288ad6;
-//     border-left: 6px solid transparent;
-//     border-right: 6px solid transparent;
-//     position: absolute;
-//     z-index: 100;
-//   }
-// }

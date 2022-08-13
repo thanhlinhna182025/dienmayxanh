@@ -23,7 +23,7 @@ const router = async () => {
     (request.verb ? `/${request.verb}` : "");
   $("#header").html(HeaderScreen.render());
   const screen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
-  $("#main").html(screen.render());
+  $("#main").html(await screen.render());
   if (screen.after_render) {
     await screen.after_render();
   }

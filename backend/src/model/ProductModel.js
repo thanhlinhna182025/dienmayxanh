@@ -35,6 +35,7 @@ const promotionSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
+
 const productSchema = new mongoose.Schema(
     {
         image: [imagesSchema],
