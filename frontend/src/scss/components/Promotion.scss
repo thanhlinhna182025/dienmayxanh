@@ -1,51 +1,78 @@
-@use '../abstracts/' as *;
-@use '../base/' as *;
+@use "../abstracts/" as *;
+@use "../base/" as *;
 .promotion {
-    @include flex-col();
-    padding: 3rem;
-    background-color: $clr-bg-one;
-    border-radius: 1rem;
+  @include flex-col();
+  background-color: $clr-bg-one;
+  border-radius: 1rem;
+  width: 100%;
+  gap: 3rem;
+  margin-bottom: 5rem;
+  .promotion__image-container {
     width: 100%;
-    gap: 3rem;
-    margin-bottom: 5rem;
-    .promotion__top {
+    img {
+      width: 100%;
+      object-fit: cover;
+      @include mobile {
         width: 100%;
-        @include flex-col();
+        margin-left: 0;
+      }
+      @include tablet {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+  }
+  .promotion__top {
+    width: 100%;
+    padding: 0 1rem;
+    @include flex-col();
+    gap: 1rem;
+
+    .promotion__list-products {
+      width: 100%;
+      @include flex-row($wrap: nowrap);
+      padding: 0 5rem;
+      @include mobile {
+        padding: 0;
+        flex-wrap: wrap;
+        justify-content: flex-start;
         gap: 1rem;
-        .promotion__image-container {
-            width: 100%;
-            img {
-                width: 1227px;
-                object-fit: cover;
-                margin-left: -3rem;
-                margin-top: -3rem;
-            }
+      }
+      @include tablet {
+        padding: 0;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 1rem;
+      }
+      @include ipad {
+        padding: 0 2rem;
+      }
+
+      .promotion__list-item {
+        padding: 1rem 2rem;
+        background-color: #fff;
+        border-radius: 0.5rem;
+        color: $clr-text-gray;
+        a {
+          cursor: pointer;
+          font-weight: 600;
+          &:hover {
+            color: $clr-text-blue;
+          }
         }
-        .promotion__list-products {
-            width: 100%;
-            @include flex-row($wrap: nowrap);
-            padding: 0 5rem;
-            .promotion__list-item {
-                padding: 1rem 2rem;
-                background-color: #fff;
-                border-radius: 0.5rem;
-                color: $clr-text-gray;
-                a {
-                    cursor: pointer;
-                    font-weight: 600;
-                    &:hover {
-                        color: $clr-text-blue;
-                    }
-                }
-            }
-        }
+      }
     }
-    .promotion__main {
-        width: 100%;
-        @include grid($value: 200px);
+  }
+  .promotion__main {
+    width: 100%;
+    @include grid($value: 200px);
+    padding: 0 3rem;
+  }
+  .promotion__bottom {
+    width: 100%;
+    @include flex-row($justify: center);
+    .btn {
+      margin-bottom: 2rem;
     }
-    .promotion__bottom {
-        width: 100%;
-        @include flex-row($justify: center);
-    }
+  }
 }

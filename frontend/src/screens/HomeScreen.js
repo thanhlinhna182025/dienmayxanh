@@ -25,6 +25,14 @@ const HomeScreen = {
       // autoplay: {
       //     delay: 2000,
       // },
+      breakpoints: {
+        576: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+      },
     });
     var swiperpay = new Swiper(".mySwiperPay", {
       modules: [Navigation, Pagination, Autoplay],
@@ -36,6 +44,14 @@ const HomeScreen = {
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        576: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+        },
       },
       // autoplay: {
       //     delay: 2000,

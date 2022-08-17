@@ -1,9 +1,11 @@
 import { getCountryData, getDistrictData, getWardData } from "../api";
 import InfoCustomer from "../components/InfoCustomer";
+import ChonsenQuantity from "../components/ChosenQuantity";
 import { singleProduct } from "../data";
 
 const AddToCartScreen = {
   after_render: async () => {
+    // Address customer
     const countryData = await getCountryData();
     const city = document.getElementById("city");
     const district = document.getElementById("district");
@@ -32,6 +34,7 @@ const AddToCartScreen = {
           const districtData = await getDistrictData(c.attributes.code.value);
           dropdownDictrict.classList.toggle("active");
           district.classList.toggle("anchor");
+          district.disabled = false;
           dropdownDictrict.innerHTML = `${districtData.districts
             .map(
               (d) =>
@@ -41,6 +44,7 @@ const AddToCartScreen = {
           Array.from(document.getElementsByClassName("district")).forEach((d) =>
             d.addEventListener("click", async (e) => {
               e.stopPropagation();
+              ward.disabled = false;
               districtName.innerText = d.textContent;
               dropdownDictrict.classList.remove("active");
               district.classList.remove("anchor");
@@ -73,6 +77,40 @@ const AddToCartScreen = {
     ward.addEventListener("click", () => {
       dropdownWard.classList.toggle("active");
       ward.classList.toggle("anchor");
+    });
+    // Product quantity
+    const decrease = document.getElementById("decrease");
+    const quantity = document.getElementById("quantity");
+    const increase = document.getElementById("increase");
+    let value = parseInt(quantity.value, 10);
+    value = isNaN(value) ? 0 : value;
+
+    increase.addEventListener("click", () => {
+      if (value < 5) {
+        value++;
+        quantity.value = value;
+        decrease.disabled = false;
+      } else if ((value = 5)) {
+        value = value;
+        quantity.value = value;
+        increase.disabled = true;
+        console.log(value);
+      }
+    });
+    decrease.addEventListener("click", () => {
+      if (value > 1) {
+        value--;
+        quantity.value = value;
+        increase.disabled = false;
+        console.log(value);
+      } else if ((value = 1)) {
+        quantity.value = value;
+        decrease.disabled = true;
+        console.log(value);
+      }
+    });
+    quantity.addEventListener("onchange", () => {
+      quantity.value = value;
     });
   },
   render: async () => {
@@ -112,11 +150,7 @@ const AddToCartScreen = {
                 <span class="discount">Giảm <b>${discount}</b> Còn</span>
                 <span class="remain"> ${remain}</span>
               </div>
-              <div class="choose__quantity">
-                <button>-</button>
-                <span>1</span>
-                <button>+</button>
-              </div>
+              ${ChonsenQuantity.render()}
               <div class="provisional">
                 <span>Tạm tính (1) sản phẩm :</span>
                 <span>${remain}</span>

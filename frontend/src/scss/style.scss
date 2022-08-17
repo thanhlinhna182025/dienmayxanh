@@ -9,10 +9,28 @@
 }
 .main {
   padding: 0 5rem;
+  @include mobile {
+    padding: 0;
+  }
+  @include tablet {
+    padding: 0;
+  }
 }
 .product__screen {
   padding: 2rem 5rem;
   background-color: #fff;
+  @include mobile {
+    padding: 1rem;
+  }
+  @include tablet {
+    padding: 1rem;
+  }
+  @include ipad {
+    padding: 2rem;
+  }
+  @include tablet {
+    padding: 2rem;
+  }
 }
 .line__break {
   width: 100%;
@@ -76,6 +94,9 @@
   position: relative;
   button {
     width: 100%;
+    &:disabled {
+      background-color: #eee;
+    }
   }
   .anchor {
     display: block;

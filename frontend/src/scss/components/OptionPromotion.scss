@@ -1,24 +1,39 @@
-@use '../abstracts/' as *;
-@use '../base/' as *;
+@use "../abstracts/" as *;
+@use "../base/" as *;
 .option__promotion {
-    @include flex-row();
+  @include flex-row();
+  gap: 2rem;
+  margin-bottom: 5rem;
+  @include mobile {
+    align-items: stretch;
+  }
+  @include ipad {
+    align-items: stretch;
+    transform: translateY(-50%);
+    margin-bottom: 0;
+  }
+
+  .promotionItem {
+    @include flex-row($justify: center);
     gap: 2rem;
-    margin-bottom: 5rem;
-    .promotionItem {
-        @include flex-row($justify: center);
-        gap: 2rem;
-        background-color: #fff;
-        flex: 1 1;
-        border-radius: 1rem;
-        padding: 1.5rem 0;
-        img {
-            width: 7.5rem;
-            object-fit: cover;
-        }
-        span {
-            font-size: 2rem;
-            font-weight: 700;
-            color: $clr-text-black;
-        }
+    @include mobile {
+      gap: 1rem;
     }
+    background-color: #fff;
+    flex: 1 1;
+    border-radius: 1rem;
+    padding: 1.5rem 0;
+    img {
+      width: 7.5rem;
+      object-fit: cover;
+    }
+    span {
+      font-size: 2rem;
+      @include mobile {
+        font-size: 1.8rem;
+      }
+      font-weight: 700;
+      color: $clr-text-black;
+    }
+  }
 }
