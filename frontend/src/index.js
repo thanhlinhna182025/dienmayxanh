@@ -7,6 +7,7 @@ import ProductScreen from "./screens/ProductScreen";
 import Error404Screen from "./screens/Error404Screen";
 import AddToCartScreen from "./screens/AddToCartScreen";
 import OrderScreen from "./screens/OrderScreen";
+import { hideLoading, showLoading } from "./util";
 
 const routes = {
   "/": HomeScreen,
@@ -16,6 +17,7 @@ const routes = {
 };
 
 const router = async () => {
+  showLoading();
   const request = parseRequestUrl();
   const parseUrl =
     (request.resource ? `/${request.resource}` : "/") +
@@ -28,6 +30,7 @@ const router = async () => {
     await screen.after_render();
   }
   $("#footer").html(FooterScreen.render());
+  hideLoading();
 };
 
 window.addEventListener("load", router);
