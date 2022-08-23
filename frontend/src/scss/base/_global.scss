@@ -1,0 +1,136 @@
+@use "../abstracts/" as *;
+@use "../base/color" as *;
+
+.form__group-global {
+  position: relative;
+  .label-position {
+    position: absolute;
+    top: 0;
+    background: #fff;
+    padding: 0 3px;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 1rem;
+    @include border();
+    outline: none;
+    border-radius: 4px;
+
+    &:focus {
+      @include border($color: #dd4b39);
+      @include s-shadow($color: #dd4b39);
+    }
+    &:focus + {
+      .label--white {
+        top: 0;
+        background: #fff;
+        padding: 0 3px;
+      }
+      .label--gradient {
+        top: 0;
+        background: linear-gradient(-180deg, #f6f6f6 55%, #fff);
+        padding: 0 3px;
+      }
+    }
+  }
+  label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    color: #ccc;
+  }
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background-clip: content-box;
+  padding: 1px;
+  &:checked {
+    background-color: $clr-bg-three;
+  }
+}
+button:disabled {
+  border: 1px solid #999999;
+  background-color: #b3f4f4;
+  color: #666666;
+}
+
+.container {
+  width: 100%;
+}
+.main {
+  padding: 0 5rem;
+  @include mobile {
+    padding: 0;
+  }
+  @include tablet {
+    padding: 0;
+  }
+}
+.product__screen {
+  padding: 2rem 5rem;
+  background-color: #fff;
+  @include mobile {
+    padding: 1rem;
+  }
+  @include tablet {
+    padding: 1rem;
+  }
+  @include ipad {
+    padding: 2rem;
+  }
+  @include tablet {
+    padding: 2rem;
+  }
+}
+.line__break {
+  width: 100%;
+  height: 2px;
+  background-color: $clr-bg-one;
+  margin: 1.5rem 0;
+}
+.height__break {
+  height: auto;
+  width: 2px;
+  background-color: $clr-bg-one;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.box {
+  width: 100%;
+  @include border();
+  padding: 1rem;
+}
+.line {
+  background-color: $clr-bg-one;
+  margin: 1.5rem 0;
+}
+.line--row {
+  width: 100%;
+  height: 1px;
+}
+.line--col {
+  height: 100%;
+  width: 1px;
+}
+.fw {
+  width: 100%;
+}
+.fh {
+  height: 100%;
+}
+.popup__bg {
+  background-color: rgba(222, 199, 199, 0.7);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: fit-content;
+  @include flex-col($align: center, $justify: center);
+}

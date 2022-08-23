@@ -1,7 +1,7 @@
-import logo from '../assets/images/logo.png';
+import logo from "../assets/images/logo.png";
 const Header = {
-    render: () => {
-        return `
+  render: () => {
+    return `
         <div class="header__container">
             <div class="header__top">
                 <a href="/#/" class="logo"><img src="${logo}"/></a>
@@ -80,13 +80,12 @@ const Header = {
                         <li><a>Lap top</a></li>
                         <li><a>Điều hòa</a></li>
                         <li><a>Đồ gia dụng</a></li>
-                        <li><a href="#/product">Product</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         `;
-    },
+  },
 };
 
 export default Header;

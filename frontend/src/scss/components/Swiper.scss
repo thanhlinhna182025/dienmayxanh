@@ -86,7 +86,7 @@
   @include destop {
     width: 100%;
   }
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
   .swiper-slide {
     border-radius: 0;
     padding: 2rem;
@@ -107,6 +107,30 @@
       @include tablet {
         width: 100%;
       }
+    }
+  }
+  .swiper-pagination {
+    position: absolute;
+    bottom: 0px !important;
+    right: 10px;
+    width: auto !important;
+    left: auto !important;
+    margin: 0;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0;
+    background-color: $clr-bg-one;
+    margin-right: 2rem;
+    img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
     }
   }
 }

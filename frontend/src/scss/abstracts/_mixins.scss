@@ -34,6 +34,9 @@
   grid-template-columns: repeat(auto-fit, minmax($value, 1fr));
   grid-gap: $gap;
 }
+@mixin s-shadow($color: #888) {
+  box-shadow: 1px 1px 5px $color;
+}
 @mixin m-shadow($color: #888) {
   box-shadow: 5px 10px 10px $color;
 }
@@ -86,6 +89,21 @@
   transform: rotate(45deg);
   top: -5px;
   z-index: 9999;
+}
+
+@mixin tri_icon($bdclr: #4a90e2, $size: 6px) {
+  content: "";
+  background-color: inherit;
+  border-top: $size solid $bdclr;
+  border-left: $size solid $bdclr;
+  border-bottom: $size solid transparent;
+  border-right: $size solid transparent;
+  position: absolute;
+  transform: rotate(45deg) translateY(-50%);
+  top: 50%;
+  right: 15px;
+  z-index: 9999;
+  border-radius: 3px;
 }
 
 $mobile-width: 576px;

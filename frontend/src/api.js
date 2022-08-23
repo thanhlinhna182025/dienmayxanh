@@ -1,4 +1,4 @@
-export const getCountryData = async () => {
+export const getCityData = async () => {
   try {
     const countryData = await fetch("https://provinces.open-api.vn/api/p").then(
       (data) => data.json()
@@ -14,7 +14,7 @@ export const getDistrictData = async (code) => {
     const districtData = await fetch(
       `https://provinces.open-api.vn/api/p/${code}?depth=2`
     ).then((data) => data.json());
-    return districtData;
+    return districtData.districts;
   } catch (error) {
     console.log(error);
   }
@@ -24,7 +24,7 @@ export const getWardData = async (code) => {
     const wardData = await fetch(
       `https://provinces.open-api.vn/api/d/${code}?depth=2`
     ).then((data) => data.json());
-    return wardData;
+    return wardData.wards;
   } catch (error) {
     console.log(error);
   }

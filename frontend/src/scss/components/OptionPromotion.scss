@@ -1,14 +1,10 @@
 @use "../abstracts/" as *;
 @use "../base/" as *;
 .option__promotion {
-  @include flex-row();
+  @include flex-row($align: stretch);
   gap: 2rem;
   margin-bottom: 5rem;
-  @include mobile {
-    align-items: stretch;
-  }
   @include ipad {
-    align-items: stretch;
     transform: translateY(-50%);
     margin-bottom: 0;
   }

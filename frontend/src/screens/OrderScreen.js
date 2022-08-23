@@ -97,7 +97,7 @@ const OrderScreen = {
                   </div>
                 </div>
                 <button class="accept__button">Xac Nhan</button>
-                <a class="policy">Xem chinh sach hoan tien Online</a>
+                <a class="policy" href="/#/dropdown">Xem chinh sach hoan tien Online</a>
               </div>
               <div class="line line--row"></div>
               <div class="delivery__time-container order__item">

@@ -36,11 +36,6 @@
     padding-bottom: 1.5rem;
     .image__container {
       flex: 1;
-      img {
-        width: 100%;
-        object-fit: cover;
-        display: block;
-      }
     }
     .product__info {
       flex: 4;
@@ -75,14 +70,14 @@
         font-weight: 600;
         color: $clr-text-blue;
       }
-      .provisional {
-        width: 100%;
-        @include flex-row();
-        span:nth-child(2) {
-          font-weight: 600;
-          color: $clr-text-blue;
-        }
-      }
+    }
+  }
+  .provisional {
+    width: 100%;
+    @include flex-row();
+    span:nth-child(2) {
+      font-weight: 600;
+      color: $clr-text-blue;
     }
   }
 
@@ -99,48 +94,24 @@
       gap: 1rem;
       width: 100%;
       margin-bottom: 1rem;
-      .form__group {
-        width: 100%;
-        &:nth-child(1) {
-          @include flex-row($justify: flex-start);
-          gap: 2rem;
-        }
-        &:nth-child(4) {
-          @include flex-row($justify: flex-start);
-          gap: 2rem;
-        }
-        .radio__item {
-          @include flex-row();
-        }
-        input[type="radio"] {
-          appearance: none;
-          width: 16px;
-          height: 16px;
-          border: 1px solid #ccc;
-          border-radius: 50%;
-          background-clip: content-box;
-          padding: 1px;
-          &:checked {
-            background-color: $clr-bg-three;
-          }
-        }
-        &:nth-child(2) {
-          @include flex-row();
-          gap: 2rem;
-          width: 100%;
-          input {
-            flex: 1;
-            padding: 1rem;
-            border-radius: 5px;
-            border: 1px solid #d1d1d1;
-            text-transform: capitalize;
-            outline: none;
-          }
-          input:focus {
-            border: 1.5px solid $clr-text-blue;
-          }
-        }
-      }
     }
   }
+}
+.form__group {
+  width: 100%;
+  .radio__item {
+    @include flex-row();
+  }
+}
+.form__group-flex--row {
+  @include flex-row($justify: flex-start);
+  gap: 2rem;
+}
+.name,
+.phone {
+  width: calc(50% - 1rem);
+}
+.street__container {
+  width: calc(50% - 1rem);
+  position: relative;
 }

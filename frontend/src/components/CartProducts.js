@@ -33,7 +33,7 @@ const CartProducts = {
                         })}
                     </div>
                 </div>
-            </div>;
+            </div>
         </a>`;
   },
 };

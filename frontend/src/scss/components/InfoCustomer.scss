@@ -17,9 +17,7 @@
     @include border;
     border-radius: 4px;
     background-color: #fff;
-  }
-  button {
-    position: relative;
+    outline: none;
   }
   button:after {
     @include tri-down();

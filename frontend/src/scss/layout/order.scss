@@ -138,18 +138,7 @@
     }
   }
 }
-input[type="radio"] {
-  appearance: none;
-  width: 16px;
-  height: 16px;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  background-clip: content-box;
-  padding: 1px;
-  &:checked {
-    background-color: $clr-bg-three;
-  }
-}
+
 .delivery__time-container {
   p {
     margin-bottom: 1rem;

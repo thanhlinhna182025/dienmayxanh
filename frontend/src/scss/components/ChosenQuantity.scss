@@ -14,7 +14,8 @@
     cursor: pointer;
     color: $clr-text-blue;
     &:disabled {
-      color: $clr-gray;
+      color: #b3f4f4;
+      cursor: not-allowed;
     }
   }
   .increase {
