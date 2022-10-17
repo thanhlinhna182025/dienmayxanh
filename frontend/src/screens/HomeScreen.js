@@ -8,9 +8,13 @@ import Trending from "../components/Trending";
 import FeatureCategory from "../components/FeatureCategory";
 import SliderPay from "../components/SliderPay";
 import SearchMost from "../components/SearchMost";
+import { countDownTimer } from "../../../dashboard/src/helper/ultils";
 
 const HomeScreen = {
-  after_render: () => {
+  after_render: async () => {
+    $(function () {
+      countDownTimer();
+    });
     var swiper = new Swiper(".mySwiper", {
       modules: [Navigation, Pagination, Autoplay],
       loop: true,
@@ -22,9 +26,9 @@ const HomeScreen = {
         prevEl: ".swiper-button-prev",
       },
       centeredSlides: false,
-      // autoplay: {
-      //     delay: 2000,
-      // },
+      autoplay: {
+        delay: 2000,
+      },
       breakpoints: {
         576: {
           slidesPerView: 1,
@@ -53,19 +57,19 @@ const HomeScreen = {
           slidesPerView: 2,
         },
       },
-      // autoplay: {
-      //     delay: 2000,
-      // },
+      autoplay: {
+        delay: 2000,
+      },
     });
   },
-  render: () => {
+  render: async () => {
     return `
         <div class="main">
             ${Banner.render()}
             ${Slider.render()}
             ${OptionPromotion.render()}
-            ${FlashSale.render()}
-            ${Promotion.render()}
+            ${await FlashSale.render()}
+            ${await Promotion.render()}
             ${Trending.render()}
             ${FeatureCategory.render()}
             ${SliderPay.render()}

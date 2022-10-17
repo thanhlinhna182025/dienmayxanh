@@ -17,7 +17,7 @@ export const productsCart = [
   {
     id: 2,
     image: "../assets/images/productcart/productcart2.png",
-    name: "Quạt treo Midea FW40 7JR",
+    name: "Quạt treo ",
     brand: "Media",
     promotion: {
       id: 2,
@@ -32,7 +32,7 @@ export const productsCart = [
   {
     id: 3,
     image: "../assets/images/productcart/productcart3.jpg",
-    name: "Quạt treo Midea FW40 7JR",
+    name: "Quạt treo Midea  7JR",
     brand: "Media",
     promotion: {
       id: 1,
@@ -47,7 +47,7 @@ export const productsCart = [
   {
     id: 4,
     image: "../assets/images/productcart/productcart4.jpg",
-    name: "Quạt treo Midea FW40 7JR",
+    name: "Quạt treo Midea FW40 7JR Midea FW40 7JR",
     brand: "Media",
     promotion: {
       id: 2,

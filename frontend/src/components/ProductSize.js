@@ -1,8 +1,8 @@
 const ProductSize = {
-  render: (singleProduct) => {
+  render: (product) => {
     return `
     <div class="product__size">
-        ${singleProduct.sizes
+        ${product.sizes
           .map((size) => `<div class="size"><span>${size}</span></div>`)
           .join("\n")}
     </div>`;

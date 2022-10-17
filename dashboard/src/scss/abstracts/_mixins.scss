@@ -1,0 +1,139 @@
+@mixin border($width: 1px, $type: solid, $color: #ccc) {
+  border: $width $type $color;
+}
+
+@mixin flex-row(
+  $display: flex,
+  $dir: row,
+  $align: center,
+  $justify: space-between,
+  $wrap: wrap
+) {
+  display: $display;
+  align-items: $align;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+  flex-direction: $dir;
+}
+@mixin flex-col(
+  $display: flex,
+  $dir: column,
+  $align: flex-start,
+  $justify: space-between,
+  $wrap: nowrap
+) {
+  display: $display;
+  flex-direction: $dir;
+  flex-direction: column;
+  align-items: $align;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+}
+@mixin grid($value, $gap: 1rem) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($value, 1fr));
+  grid-gap: $gap;
+}
+@mixin s-shadow($color: #888) {
+  box-shadow: 1px 1px 5px $color;
+}
+@mixin m-shadow($color: #888) {
+  box-shadow: 5px 10px 10px $color;
+}
+@mixin l-shadow($color: #888) {
+  box-shadow: 20px 10px 10px $color;
+}
+@mixin tri-down($right: 1rem, $width: 8px, $color: #288ad8) {
+  content: "";
+  position: absolute;
+  right: $right;
+  border-top: $width solid $color;
+  border-left: $width solid transparent;
+  border-right: $width solid transparent;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin tri-up($left: 4rem, $width: 10px, $color: #eee) {
+  content: "";
+  position: absolute;
+  border-bottom: $width solid $color;
+  border-left: $width solid transparent;
+  border-right: $width solid transparent;
+  top: 0;
+  transform: translateY(-100%);
+  left: 4rem;
+}
+@mixin centerAbsolute($pos) {
+  position: absolute;
+  @if $pos == "both" {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if $pos == "left" {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if $pos == "top" {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@mixin tri($bgc: #fff) {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: $bgc;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  position: absolute;
+  transform: rotate(45deg);
+  top: -5px;
+  z-index: 9999;
+}
+
+@mixin tri_icon($bdclr: #4a90e2, $size: 6px) {
+  content: "";
+  background-color: inherit;
+  border-top: $size solid $bdclr;
+  border-left: $size solid $bdclr;
+  border-bottom: $size solid transparent;
+  border-right: $size solid transparent;
+  position: absolute;
+  transform: rotate(45deg) translateY(-50%);
+  top: 50%;
+  right: 15px;
+  z-index: 9999;
+  border-radius: 3px;
+}
+
+$mobile-width: 576px;
+$tablet-width: 768px;
+$ipad-width: 992px;
+$desktop-width: 1024px;
+$cpu-width: 1170px;
+
+@mixin mobile {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$ipad-width - 1px}) {
+    @content;
+  }
+}
+@mixin ipad {
+  @media (min-width: #{$ipad-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+@mixin destop {
+  @media (min-width: #{$desktop-width}) and (max-width: #{$cpu-width - 1px}) {
+    @content;
+  }
+}
+@mixin cpu {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}

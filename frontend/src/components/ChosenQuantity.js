@@ -1,9 +1,9 @@
 const ChonsenQuantity = {
-  render: () => {
+  render: (quantity = 1) => {
     return `<div class="choose__quantity">
-                <button id="decrease" class="decrease">-</button>
-                <input id="quantity" value="1" class="quantity"/>
-                <button id="increase" class="increase">+</button>
+                <button  class="decrease">-</button>
+                <input  value="${quantity}" class="quantity"/>
+                <button  class="increase">+</button>
             </div>`;
   },
 };

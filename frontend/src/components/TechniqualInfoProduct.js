@@ -1,9 +1,9 @@
 const TechniqualInfoProduct = {
-  render: (singleProduct) => {
-    const techniqual = Object.entries(singleProduct.techniqual);
+  render: (single) => {
+    const techniqual = Object.entries(single.techniqual);
     return `
     <div class="techniqual__info">
-        <h2>Thông số kỹ thuật ${singleProduct.name}</h2>
+        <h2>Thông số kỹ thuật ${single.name}</h2>
         <ul class="techniqual__info-list">
             ${techniqual
               .map(

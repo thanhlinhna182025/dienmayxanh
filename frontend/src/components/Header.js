@@ -1,6 +1,12 @@
 import logo from "../assets/images/logo.png";
+import { getAllCategory, getAllSubcategory, PF } from "../helper/api";
+import { getCartItems } from "../helper/localStorage";
+
 const Header = {
-  render: () => {
+  render: async () => {
+    const subcagories = await getAllSubcategory();
+    const categories = await getAllCategory();
+    const cartItems = getCartItems();
     return `
         <div class="header__container">
             <div class="header__top">
@@ -10,7 +16,14 @@ const Header = {
                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
                 <a>Lịch sử đơn hàng</a>
-                <a>
+                <a class="baggaged" href="${
+                  cartItems.length === 0 ? `/#/` : `/#/cart`
+                }">
+                    <div class="quantity__cart">
+                        <span>${
+                          cartItems.length > 0 ? cartItems.length : 0
+                        }</span>
+                    </div>
                     <i class="fa-solid fa-cart-arrow-down" id="cart"></i>
                     <label >Giỏ hàng</label>
                 </a>
@@ -36,50 +49,22 @@ const Header = {
                             <a>Tất cả danh mục</a>
                             <div class="dropdowm__menu">
                                 <ul>
-                                    <li>
-                                        <i class="fa-solid fa-tv"></i>
-                                        <a>Tivi, Loa , Dàn KaraOke</a>
+                                ${categories
+                                  .map(
+                                    (c) => `<li>
+                                        <img src="${PF}${c.icon}"/>
+                                        <a>${c.name}</a>
                                         <i class="fa-solid fa-angle-right"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-mobile-screen"></i>
-                                        <a>Máy Giặt, Sấy Quần Áo</a>
-                                        <i class="fa-solid fa-angle-right"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-mobile-screen"></i>
-                                        <a>Máy Lạnh, Điều Hòa</a>
-                                        <i class="fa-solid fa-angle-right"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-mobile-screen"></i>
-                                        <a>Điện Thoại</a>
-                                        <i class="fa-solid fa-angle-right"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-tablet-screen-button"></i>
-                                        <a>Máy Tính Bảng</a>
-                                        <i class="fa-solid fa-angle-right"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-tablet-screen-button"></i>
-                                        <a>Máy Tính</a>
-                                        <i class="fa-solid fa-angle-right"></i>
-                                    </li>
+                                    </li>`
+                                  )
+                                  .join("")}
                                 </ul>
                             </div>
                         </li>
                         <li class="bordercol"></li>
-                        <li>
-                            <a>Tivi</a>
-                        </li>
-                        <li><a>Tủ lạnh</a></li>
-                        <li><a>Máy Giặt</a></li>
-                        <li><a>Máy đông</a></li>
-                        <li><a>Điện thoại</a></li>
-                        <li><a>Lap top</a></li>
-                        <li><a>Điều hòa</a></li>
-                        <li><a>Đồ gia dụng</a></li>
+                        ${subcagories
+                          .map((s) => `<li><a>${s.name}</a></li>`)
+                          .join("")}
                     </ul>
                 </div>
             </div>

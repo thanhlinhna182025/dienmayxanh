@@ -1,0 +1,134 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.customer__info {
+  padding: 1rem;
+  width: 100%;
+}
+.form {
+  width: 100%;
+  @include flex-col();
+  gap: 1.5rem;
+}
+.title {
+  color: $clr-text-blue;
+  font-weight: 600;
+  font-size: 2rem;
+}
+.form__group {
+  width: 100%;
+  @include flex-row($justify: flex-start);
+  gap: 2rem;
+}
+.form__group-item {
+  background-color: #fff;
+  width: calc(50% - 1rem);
+}
+.form__group-item--radio {
+  width: fit-content;
+}
+.fw {
+  width: 100%;
+}
+
+input[type="tel"] {
+  padding: 1rem;
+  outline: none;
+  @include border();
+  font-size: 16px;
+  border-radius: 4px;
+  label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    z-index: 1;
+    transform: translateY(-50%);
+    background-color: inherit;
+    color: #ccc;
+  }
+  &:focus {
+    border-color: $clr-bg-one;
+    @include s-shadow();
+    + label {
+      top: 0;
+      padding: 0.1rem 1rem;
+    }
+  }
+}
+input[type="text"] {
+  padding: 1rem;
+  outline: none;
+  @include border();
+  font-size: 16px;
+  border-radius: 4px;
+  label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    z-index: 1;
+    transform: translateY(-50%);
+    background-color: inherit;
+    color: #ccc;
+  }
+  &:focus {
+    border-color: $clr-bg-one;
+    @include s-shadow();
+    + label {
+      top: 0;
+      padding: 0.1rem 1rem;
+      border-right: 1px solid #ccc;
+      border-left: 1px solid #ccc;
+    }
+  }
+}
+.form__input {
+  width: 100%;
+}
+
+.relative {
+  position: relative;
+  label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    z-index: 1;
+    transform: translateY(-50%);
+    background-color: inherit;
+    color: #ccc;
+  }
+}
+.deliver__container {
+  width: 100%;
+  @include flex-col();
+  gap: 3rem;
+  padding: 2rem 0;
+}
+.shop__adress {
+  background-color: rgba(239, 230, 230, 0.843);
+  width: 100%;
+  padding: 2rem;
+  @include flex-col();
+  position: relative;
+  gap: 1rem;
+  display: none;
+  @include m-shadow();
+  border-radius: 5px;
+  z-index: 99;
+  transition: all linear 0.5s;
+  h1 {
+    color: $clr-text-blue;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    background-color: inherit;
+    top: 0;
+    left: 14rem;
+    transform: rotate(135deg) translateY(50%);
+  }
+}

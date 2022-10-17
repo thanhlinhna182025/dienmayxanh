@@ -1,0 +1,28 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+.statistical__container {
+  @include flex-row();
+  gap: 2rem;
+  padding: 1rem 3rem;
+  margin-bottom: 5rem;
+  .statistical-item {
+    padding: 1rem;
+    flex: 1;
+    @include flex-col($align: center);
+    gap: 1rem;
+    @include m-shadow();
+    @include border();
+    background-color: #fff;
+    .title {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    .item-bottom {
+      @include flex-row($justify: flex-start);
+      gap: 1rem;
+      .content {
+        @include flex-col();
+      }
+    }
+  }
+}

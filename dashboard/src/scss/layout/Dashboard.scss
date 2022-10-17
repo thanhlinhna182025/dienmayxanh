@@ -1,0 +1,146 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+.dashboard {
+  @include flex-row($align: flex-start);
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+}
+//Sibebar start
+.sidebar {
+  width: 24rem;
+  padding: 0 16px 16px;
+  background-color: #fff;
+  @include s-shadow();
+  height: 100vh;
+  overflow-y: scroll;
+}
+.sidebar__list {
+  @include flex-col();
+  gap: 2rem;
+}
+.sidebar__list-item {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 4px;
+  &:hover {
+    background-color: #f1f6fc;
+  }
+  &:active {
+    background-color: #e6ebf0;
+  }
+  a {
+    @include flex-row($justify: flex-start, $wrap: nowrap);
+    gap: 1rem;
+    color: $clr-text-gray;
+    font-weight: 600;
+  }
+  img {
+    width: 2.5rem;
+    object-fit: cover;
+  }
+}
+.merchant {
+  @include flex-row($wrap: nowrap, $justify: flex-start);
+  gap: 1rem;
+  position: relative;
+  background-color: rgba(40, 51, 65, 0.9);
+  padding: 1rem;
+  border-radius: 5px;
+  &:hover {
+    background-color: rgba(40, 51, 65, 0.7);
+  }
+  &::after {
+    content: "\27A3";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+    font-size: 2.5rem;
+    color: $clr-text-blue;
+    cursor: pointer;
+  }
+  span {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    flex: 1;
+  }
+}
+.merchant-logo {
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: #fff;
+  border-radius: 50%;
+  img {
+    width: 30px;
+    height: 30px;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+//Sibebar end
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: $clr-text-blue;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.main {
+  flex: 1;
+}
+.container {
+  width: 100%;
+  @include flex-row($align: flex-start);
+  gap: 2rem;
+  margin-bottom: 5rem;
+  padding: 2rem;
+}
+.left {
+  @include flex-col();
+  gap: 2rem;
+}
+.right {
+  @include flex-col();
+  gap: 2rem;
+}
+.bgc-create {
+  background-color: rgba(202, 255, 198, 0.8);
+}
+.bgc-info {
+  background-color: rgba(158, 201, 249, 0.8);
+}
+.bgc-edit {
+  background-color: rgba(251, 231, 221, 0.8);
+}
+.bgc-stop {
+  background-color: rgba(250, 63, 88, 0.8);
+}
+.top {
+  width: 100%;
+  @include flex-row();
+  gap: 3rem;
+}
+.search__container {
+  flex: 1;
+  position: relative;
+  input {
+    padding: 1rem;
+    @include border();
+    outline: none;
+    border-radius: 3px;
+    width: 100%;
+    font-size: 1.8rem;
+  }
+  i {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    font-size: 2rem;
+    color: $clr-text-blue;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+}

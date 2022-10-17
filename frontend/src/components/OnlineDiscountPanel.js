@@ -1,17 +1,12 @@
+import { formatVND } from "../helper/ultil";
+
 const OnlineDiscountPanel = {
-  render: (singleProduct) => {
-    const price = singleProduct.price;
-    const discountpercent = singleProduct.promotion.discountpercent;
+  render: (price, detail) => {
+    const discountpercent = detail.discount || 0;
     const discount = (price * discountpercent) / 100;
-    const discountMoney = new Intl.NumberFormat("vi-VN", {
-      style: "currency",
-      currency: "VND",
-    }).format(discount);
+    const discountMoney = formatVND(discount);
     const remain = price - discount;
-    const remainMoney = new Intl.NumberFormat("vi-VN", {
-      style: "currency",
-      currency: "VND",
-    }).format(remain);
+    const remainMoney = formatVND(remain);
 
     return `
     <div class="online__discount-panel">

@@ -54,11 +54,6 @@ input[type="radio"] {
     background-color: $clr-bg-three;
   }
 }
-button:disabled {
-  border: 1px solid #999999;
-  background-color: #b3f4f4;
-  color: #666666;
-}
 
 .container {
   width: 100%;
@@ -125,12 +120,14 @@ button:disabled {
   height: 100%;
 }
 .popup__bg {
-  background-color: rgba(222, 199, 199, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
-  height: fit-content;
   @include flex-col($align: center, $justify: center);
+  z-index: 9999;
+  height: fit-content;
+  min-height: 100vh;
 }

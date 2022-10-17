@@ -1,0 +1,64 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+.overlay {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(16, 16, 16, 0.5);
+}
+.overlay.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+.message__overlay-container {
+  color: #fff;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 40rem;
+  background-color: #fff;
+  overflow: hidden;
+}
+.message__overlay-content {
+  font-size: 1.8rem;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.button__wrapper {
+  @include flex-row($justify: center);
+  gap: 6rem;
+  padding: 2rem;
+}
+.message__overlay-close-button,
+.message__overlay-next-button {
+  padding: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  @include border();
+}
+.message__overlay-close-button {
+  color: $clr-text-red;
+}
+
+.message__overlay-next-button {
+  color: $clr-text-blue;
+}
+.success {
+  background-color: $clr-bg-one;
+}
+.info {
+  background-color: $clr-bg-two;
+}
+.warning {
+  background-color: $clr-bg-three;
+}
+.error {
+  background-color: $clr-bg-four;
+}

@@ -1,0 +1,27 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+.btn {
+  padding: 1rem;
+  background-color: $clr-bg-one;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  width: fit-content;
+  &:hover {
+    background-color: $clr-bg-one-rgba;
+  }
+  a {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.8rem;
+  }
+}
+.btn__container {
+  padding: 1.5rem;
+  background-color: #fff;
+  @include border();
+  border-radius: 4px;
+  @include m-shadow();
+}

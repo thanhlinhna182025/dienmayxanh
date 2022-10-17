@@ -2,116 +2,100 @@
 @use "../base/" as *;
 
 .add__to-cart {
-  width: 50%;
-  @include mobile {
-    width: 90%;
-  }
-  @include tablet {
-    width: 70%;
-  }
-  @include ipad {
-    width: 80%;
-  }
-  height: auto;
+  width: 33%;
   background-color: #fff;
+  height: fit-content;
+  border-radius: 5px;
   padding: 2rem;
-  position: relative;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  .close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    i {
-      font-size: 2rem;
-      font-weight: 600;
-    }
-  }
   @include flex-col($justify: flex-start);
-  .product__info-container {
-    @include flex-row($align: flex-start, $wrap: nowrap);
-    gap: 2rem;
-    width: 100%;
-    border-bottom: 1px solid $clr-bg-one;
-    padding-bottom: 1.5rem;
-    .image__container {
-      flex: 1;
-    }
-    .product__info {
-      flex: 4;
-      @include flex-col();
-      gap: 1rem;
-      h1 {
-        font-size: 1.8rem;
-        font-weight: 600;
-        color: $clr-text-gray;
-      }
-      .promotion__info {
-        h2 {
-          margin-bottom: 0.5rem;
-          color: $clr-text-blue;
-        }
-        p {
-          color: $clr-text-gray;
-          font-size: 1.4rem;
-          line-height: 1.8rem;
-        }
-      }
-      .price {
-        color: $clr-text-blue;
-      }
-      .discount {
-        b {
-          color: $clr-text-red;
-        }
-      }
-      .remain {
-        font-size: 2rem;
-        font-weight: 600;
-        color: $clr-text-blue;
-      }
-    }
-  }
-  .provisional {
-    width: 100%;
-    @include flex-row();
-    span:nth-child(2) {
-      font-weight: 600;
-      color: $clr-text-blue;
-    }
-  }
-
-  .customer__info-container {
-    width: 100%;
-    padding: 1rem 0;
-    .title {
-      margin-bottom: 0.5rem;
-      color: $clr-text-blue;
-      margin-bottom: 1rem;
-    }
-    .customer__info-form {
-      @include flex-col($align: flex-start, $justify: flex-start);
-      gap: 1rem;
-      width: 100%;
-      margin-bottom: 1rem;
-    }
-  }
-}
-.form__group {
-  width: 100%;
-  .radio__item {
-    @include flex-row();
-  }
-}
-.form__group-flex--row {
-  @include flex-row($justify: flex-start);
   gap: 2rem;
 }
-.name,
-.phone {
-  width: calc(50% - 1rem);
-}
-.street__container {
-  width: calc(50% - 1rem);
+.top {
   position: relative;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding: 0 0 1rem 0;
+  .title {
+    font-size: 2rem;
+    color: $clr-text-blue;
+    margin-bottom: 1rem;
+  }
+}
+.cancel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+  i {
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+}
+.center {
+  width: 100%;
+  @include flex-col();
+  gap: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding: 0 0 1rem 0;
+}
+.image__container {
+  width: 10rem;
+  padding: 0.5rem;
+  @include border();
+  border-radius: 3px;
+  img {
+    width: 100%;
+    display: block;
+  }
+}
+.group__options {
+  @include flex-col();
+  gap: 1rem;
+}
+.group__option {
+  @include flex-col();
+  gap: 1rem;
+}
+.group__option-item {
+  @include flex-row();
+  gap: 3rem;
+}
+.quantity {
+  @include flex-row();
+  gap: 2rem;
+}
+
+.bottom {
+  @include flex-col();
+  gap: 1rem;
+  width: 100%;
+}
+.promotion-detail {
+  position: relative;
+  color: $clr-text-blue;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  &::after {
+    @include tri-down();
+    top: 13px;
+    right: -18px;
+  }
+}
+.promotion__wrapper {
+  padding: 1rem;
+  @include border();
+  @include flex-col();
+  gap: 1rem;
+  display: none;
+}
+.collapse {
+  position: relative;
+  cursor: pointer;
+  &::after {
+    @include tri-up();
+    top: 50%;
+    transform: translateY(-50%);
+    right: -20px;
+  }
 }

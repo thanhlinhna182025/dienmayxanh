@@ -1,38 +1,45 @@
 import SingleProduct from "../components/SingleProduct";
-import { singleProduct } from "../data";
 import Swiper, { Navigation, Pagination, Autoplay, EffectCards } from "swiper";
+import { parseRequestUrl } from "../helper/ultil";
+import { getOneProduct, PF } from "../helper/api";
 
 const ProductScreen = {
   after_render: () => {
-    const images = singleProduct.image;
-    var swiper = new Swiper(".mySwiperProductImage", {
-      modules: [Navigation, Pagination, Autoplay, EffectCards],
-      loop: true,
-      lazy: true,
-      slidesPerView: 1,
-      effect: "cards",
-      grabCursor: true,
-      speed: 700,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        renderBullet: function (index, className) {
-          return `<img class="${className}" src="${images[index].url}"/>`;
+    $(async function () {
+      const { id } = parseRequestUrl();
+      const product = await getOneProduct(id);
+      const images = product.images;
+      var swiper = new Swiper(".mySwiperProductImage", {
+        modules: [Navigation, Pagination, Autoplay, EffectCards],
+        loop: true,
+        lazy: true,
+        slidesPerView: 1,
+        effect: "cards",
+        grabCursor: true,
+        speed: 700,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          renderBullet: function (index, className) {
+            return `<img class="${className}" src="${PF}${images[index]}"/>`;
+          },
         },
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      // autoplay: {
-      //   delay: 2000,
-      // },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        // autoplay: {
+        //   delay: 2000,
+        // },
+      });
     });
   },
-  render: () => {
+  render: async () => {
+    const { id } = parseRequestUrl();
+    const product = await getOneProduct(id);
     return `
         <div class="product__screen">
-            ${SingleProduct.render(singleProduct)}
+            ${await SingleProduct.render(product)}
         </div>`;
   },
 };

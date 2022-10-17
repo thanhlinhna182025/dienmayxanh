@@ -1,0 +1,51 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.vnpay {
+  width: 50%;
+  background-color: #5feba957;
+  margin: 3rem auto;
+  padding: 2rem;
+  @include border();
+  @include m-shadow();
+  position: relative;
+  h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $clr-text-blue;
+    margin-bottom: 2rem;
+  }
+  img {
+    width: 10rem;
+    object-fit: cover;
+    position: absolute;
+    right: 3rem;
+    top: -3rem;
+  }
+  form {
+    @include flex-col();
+    gap: 2rem;
+    .form__group {
+      @include flex-col();
+      gap: 1rem;
+      input,
+      textarea {
+        width: 100%;
+        border-radius: 3px;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+      textarea {
+        resize: none;
+        min-height: 8rem;
+      }
+      select {
+        width: 100%;
+        padding: 1rem;
+        outline: none;
+        border: none;
+      }
+    }
+  }
+}

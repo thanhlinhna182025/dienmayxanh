@@ -1,6 +1,6 @@
 @use "../abstracts/" as *;
 @use "../base/" as *;
-.cartproduct {
+.product {
   background-color: #fff;
   padding: 0.5rem;
   @include border();
@@ -20,6 +20,7 @@
     @include flex-col();
     width: 100%;
     gap: 1rem;
+    height: 17rem;
     .promotion__container {
       @include flex-row($wrap: nowrap, $justify: flex-start);
       width: 100%;
@@ -42,6 +43,7 @@
       font-size: 1.8rem;
       font-weight: normal;
       color: $clr-text-gray;
+      width: 100%;
     }
     .price {
       margin-right: 1rem;

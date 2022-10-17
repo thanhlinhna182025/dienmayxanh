@@ -1,0 +1,10 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+.chart__container {
+  @include flex-row();
+  background-color: #fff;
+  gap: 6rem;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  width: 45rem;
+}

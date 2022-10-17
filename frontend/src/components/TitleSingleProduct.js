@@ -1,16 +1,16 @@
-import labelImage from '../assets/images/labelImage.png';
-import Rating from './Rating';
+import labelImage from "../assets/images/labelImage.png";
+import Rating from "./Rating";
 const TitleSingleProduct = {
-    render: (singleProduct) => {
-        return `
+  render: (product) => {
+    return `
         <div class="single__product-title">
-            <h1>${singleProduct.name}</h1>
+            <h1>${product.name}</h1>
             <div class="single__product-labelImage">
                 <img src="${labelImage}"/>
             </div>
             ${Rating.render({
-                value: singleProduct.rate,
-                text: singleProduct.reviews,
+              value: 4,
+              text: 5,
             })}
             <div class="compare__product">
                 <a><i class="fa-solid fa-circle-plus"></i>So sánh</a>
@@ -20,7 +20,7 @@ const TitleSingleProduct = {
                 <button><i class="fa-solid fa-share"></i>Share</button>
             </div>
         </div>`;
-    },
+  },
 };
 
 export default TitleSingleProduct;

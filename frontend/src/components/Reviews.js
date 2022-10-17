@@ -3,22 +3,22 @@ import Rating from "./Rating";
 import UserRating from "./UserRating";
 
 const Reviews = {
-  render: (singleProduct) => {
+  render: (product) => {
     return `
     <div class="reviews">
-      <p>Đánh Giá ${singleProduct.name}</p>
+      <p>Đánh Giá ${product.name}</p>
       <div class="rating__container">
           <div class="box">
-            <span class="rating__number">${singleProduct.rate}</span>
+            <span class="rating__number">${product.rate}</span>
             ${Rating.render({
-              value: `${singleProduct.rate}`,
-              text: `${singleProduct.reviews}`,
+              value: `${product.rate}`,
+              text: 6,
             })}
           </div>
           ${UserRating.render()}
       </div>
       <div class="line line--row"></div>
-      ${Comments.render(singleProduct)}
+      ${Comments.render(product)}
     </div>`;
   },
 };

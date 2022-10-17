@@ -1,19 +1,23 @@
 import "./scss/style.scss";
 import FooterScreen from "./components/Footer";
 import HeaderScreen from "./components/Header";
-import { parseRequestUrl } from "./helper/ultils";
+import { parseRequestUrl } from "./helper/ultil";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import Error404Screen from "./screens/Error404Screen";
+import CartScreen from "./screens/CartScreen";
 import AddToCartScreen from "./screens/AddToCartScreen";
 import OrderScreen from "./screens/OrderScreen";
-import { hideLoading, showLoading } from "./util";
+import { hideLoading, showLoading } from "./helper/ultil";
+import VNPayScreen from "./screens/VNPayCreateScreen";
 
 const routes = {
   "/": HomeScreen,
   "/product/:id": ProductScreen,
-  "/product/:id/addtocart": AddToCartScreen,
-  "/order": OrderScreen,
+  "/product/:id/add": AddToCartScreen,
+  "/cart": CartScreen,
+  "/order/:id": OrderScreen,
+  "/vnpay/:id": VNPayScreen,
 };
 
 const router = async () => {
@@ -23,7 +27,7 @@ const router = async () => {
     (request.resource ? `/${request.resource}` : "/") +
     (request.id ? "/:id" : "") +
     (request.verb ? `/${request.verb}` : "");
-  $("#header").html(HeaderScreen.render());
+  $("#header").html(await HeaderScreen.render());
   const screen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
   $("#main").html(await screen.render());
   if (screen.after_render) {

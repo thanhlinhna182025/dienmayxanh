@@ -1,0 +1,20 @@
+@use "./abstracts/" as *;
+@use "./base/" as *;
+@use "./components/" as *;
+@use "./layout/" as *;
+
+.preview {
+  ol {
+    background-color: #ccc;
+    li {
+      display: inline-block;
+      width: 100%;
+      @include flex-row($justify: flex-start);
+      gap: 2rem;
+      img {
+        width: 100px;
+        object-fit: cover;
+      }
+    }
+  }
+}

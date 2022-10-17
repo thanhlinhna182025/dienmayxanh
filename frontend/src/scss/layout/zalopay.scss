@@ -1,0 +1,21 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.zalo-pay {
+  width: 25%;
+  background-color: #fff;
+  padding: 2rem;
+  @include border();
+  @include s-shadow();
+  @include flex-col();
+  gap: 2rem;
+  &__item {
+    @include flex-row($align: flex-start);
+  }
+  &__logo {
+    display: inline-block;
+    max-width: 100%;
+    width: auto;
+    margin-left: 5px;
+  }
+}

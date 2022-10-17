@@ -1,0 +1,95 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+#toast {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  // transform: translateY(50%);
+  z-index: 999999;
+}
+
+.toast__container {
+  padding: 1rem;
+  border-radius: 4px;
+  min-width: 40rem;
+  max-width: 48rem;
+  background-color: #fff;
+  z-index: 9999;
+  @include s-shadow();
+  @include flex-row($justify: flex-start);
+  gap: 1rem;
+  transform: translateX(calc(100% + 2rem));
+  transition: all linear;
+  i {
+    font-size: 2rem;
+  }
+}
+@keyframes sliceInToast {
+  from {
+    opacity: 0;
+    transform: translateX(calc(100% + 2rem));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.toast--active {
+  display: flex;
+}
+.bg--info {
+  color: $clr-info;
+}
+.bg--success {
+  color: $clr-success;
+}
+.bg--error {
+  color: $clr-error;
+}
+.bg--warning {
+  color: $clr-warning;
+}
+.toast--info {
+  border-left: 4px solid $clr-info;
+}
+.toast--success {
+  border-left: 4px solid $clr-success;
+}
+.toast--warning {
+  border-left: 4px solid $clr-warning;
+}
+.toast--error {
+  border-left: 4px solid $clr-error;
+}
+.toast__content-container {
+  @include flex-col();
+  gap: 0.5rem;
+  position: relative;
+}
+.toast__content-title {
+  color: $clr-text-black;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.toast__content-message {
+  color: $clr-text-gray;
+}
+.toast__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+}
+.toast__close--info {
+  color: $clr-info;
+}
+.toast__close--success {
+  color: $clr-success;
+}
+.toast__close--error {
+  color: $clr-error;
+}
+.toast__close--warning {
+  color: $clr-warning;
+}

@@ -1,10 +1,10 @@
 import Rating from "./Rating";
 
 const Comments = {
-  render: (singleProduct) => {
+  render: (product) => {
     return `<div class="comments">
           <ul class="comment__list">
-          ${singleProduct.comments
+          ${product.reviews
             .map(
               (comment) => `
                         <li class="comment__item">

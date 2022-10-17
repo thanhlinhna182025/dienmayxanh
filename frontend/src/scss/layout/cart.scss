@@ -1,0 +1,88 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.cart {
+  width: 50%;
+  @include mobile {
+    width: 90%;
+  }
+  @include tablet {
+    width: 70%;
+  }
+  @include ipad {
+    width: 80%;
+  }
+  height: auto;
+  background-color: #fff;
+  padding: 2rem;
+  position: relative;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  .close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    i {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+  }
+  @include flex-col($justify: flex-start);
+  .product__info-container {
+    @include flex-row($align: flex-start, $wrap: nowrap);
+    gap: 2rem;
+    width: 100%;
+    border-bottom: 1px solid $clr-bg-one;
+    padding-bottom: 1.5rem;
+    .image__container {
+      flex: 1;
+    }
+    .product__info {
+      flex: 4;
+      @include flex-col();
+      gap: 1rem;
+      h1 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: $clr-text-gray;
+      }
+      .promotion__info {
+        h2 {
+          margin-bottom: 0.5rem;
+          color: $clr-text-blue;
+        }
+        p {
+          color: $clr-text-gray;
+          font-size: 1.4rem;
+          line-height: 1.8rem;
+        }
+      }
+      .price {
+        color: $clr-text-blue;
+      }
+      .discount {
+        b {
+          color: $clr-text-red;
+        }
+      }
+      .remain {
+        font-size: 2rem;
+        font-weight: 600;
+        color: $clr-text-blue;
+      }
+    }
+  }
+  .provisional {
+    width: 100%;
+    @include flex-row();
+    span:nth-child(2) {
+      font-weight: 600;
+      color: $clr-text-blue;
+    }
+  }
+}
+.remove {
+  color: $clr-text-red;
+  cursor: pointer;
+  padding: 1rem 0;
+}

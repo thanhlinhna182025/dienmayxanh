@@ -68,7 +68,7 @@
       margin-right: 1rem;
       cursor: pointer;
       &:nth-of-type(1) {
-        color: $clr-text-blue;
+        color: $clr-text-gray;
       }
       &:nth-of-type(2) {
         color: $clr-text-red;
@@ -89,9 +89,10 @@
 }
 .order__status-container {
   padding: 1rem;
-  background-color: $clr-bg-three;
-  color: #fff;
+  background-color: rgba(251, 110, 46, 0.05);
+  color: $clr-text-blue;
   text-align: center;
+  border: 1px dashed $clr-bg-three;
   border-radius: 3px;
   font-weight: 600;
 }
@@ -103,26 +104,8 @@
     color: $clr-text-blue;
     font-weight: 600;
   }
-  .accept__button {
-    width: 50%;
-    margin: 0 auto;
-    padding: 1rem;
-    text-align: center;
-    background-color: $clr-bg-one;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 1rem;
-  }
-  .policy {
-    color: $clr-text-blue;
-    margin: 0 auto;
-    font-style: italic;
-  }
-  .payment__method-item {
+}
+.payment__method-item {
     @include flex-row($justify: flex-start);
     gap: 0.5rem;
     .method {
@@ -137,8 +120,22 @@
       }
     }
   }
-}
-
+.policy {
+    color: $clr-text-blue;
+    margin: 0 auto;
+    font-style: italic;
+  }
+.accept__button {
+    width: 50%;
+    margin: 0 auto;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
 .delivery__time-container {
   p {
     margin-bottom: 1rem;
@@ -153,7 +150,7 @@
       }
     }
     @include border();
-    .product__container {
+    .order__item {
       padding: 1rem;
       @include flex-row($align: flex-start);
       gap: 1rem;

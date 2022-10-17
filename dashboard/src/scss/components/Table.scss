@@ -1,0 +1,67 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.table__container {
+  @include s-shadow();
+  border-radius: 10px;
+  @include border();
+  thead {
+    overflow: hidden;
+    background-color: #e4effe;
+    tr {
+      &:first-child {
+        th {
+          &:first-child {
+            border-top-left-radius: 10px;
+          }
+          &:last-child {
+            border-top-right-radius: 10px;
+          }
+        }
+      }
+      th {
+        padding: 1rem;
+        font-size: 1.8rem;
+        cursor: pointer;
+      }
+    }
+  }
+  tbody {
+    background-color: #fff;
+    tr {
+      &:last-child {
+        td {
+          &:first-child {
+            border-bottom-left-radius: 10px;
+          }
+          &:last-child {
+            border-bottom-right-radius: 10px;
+          }
+        }
+      }
+      border-bottom: 1px solid #ccc;
+      td {
+        padding: 1rem;
+      }
+    }
+  }
+}
+.active {
+  color: green;
+}
+.inactive {
+  color: red;
+}
+.cat-item {
+  margin-right: 5px;
+  border-bottom: 1px solid $clr-text-gray;
+}
+.dropdown--edit {
+  width: 100%;
+}
+.dropdown-button--edit {
+  border: none;
+}
+.dropdown-content--edit {
+  overflow-y: hidden;
+}

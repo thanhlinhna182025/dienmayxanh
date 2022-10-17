@@ -1,0 +1,118 @@
+@use "../abstracts/" as *;
+@use "../base/color" as *;
+.flex__row2 {
+  @include flex-row($wrap: nowrap);
+  gap: 2rem;
+}
+.flex_1 {
+  flex: 1;
+}
+.flex_2 {
+  flex: 2;
+}
+.flex_3 {
+  flex: 3;
+}
+.line__break {
+  width: 100%;
+  height: 2px;
+  background-color: $clr-bg-one;
+  margin: 1.5rem 0;
+}
+.height__break {
+  height: auto;
+  width: 2px;
+  background-color: $clr-bg-one;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.box {
+  @include border();
+}
+.pd0-1 {
+  padding: 0 1rem;
+}
+.pd1-0 {
+  padding: 1rem 0;
+}
+.pd0-2 {
+  padding: 0 2rem;
+}
+.pd2-0 {
+  padding: 2rem 0;
+}
+.pd1-1 {
+  padding: 1rem 1rem;
+}
+.pd1-2 {
+  padding: 1rem 2rem;
+}
+.pd1-3 {
+  padding: 1rem 3rem;
+}
+.pd2-1 {
+  padding: 2rem 1rem;
+}
+.pd2-2 {
+  padding: 2rem 2rem;
+}
+.pd2-3 {
+  padding: 2rem 3rem;
+}
+
+.line {
+  background-color: #9999992e;
+  margin: 1.5rem 0;
+}
+.line--row {
+  height: 0.5px;
+  margin: 0 auto;
+  width: calc(100% - 6rem);
+}
+.line--col {
+  height: 100%;
+  width: 1px;
+}
+.fw {
+  width: 100% !important;
+}
+.fh {
+  height: 100%;
+}
+.mb1 {
+  margin-bottom: 1rem;
+}
+.mb2 {
+  margin-bottom: 2rem;
+}
+.mb3 {
+  margin-bottom: 3rem;
+}
+.popup__bg {
+  background-color: rgba(222, 199, 199, 0.7);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: fit-content;
+  @include flex-col($align: center, $justify: center);
+}
+.item {
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  color: #fff;
+}
+.item--active {
+  background-color: $clr-bg-two;
+}
+.item--inactive {
+  background-color: $clr-bg-four;
+}
+.green {
+  color: $clr-text-blue;
+}
+.choice__promotion {
+  @include flex-col();
+  gap: 10rem;
+}
