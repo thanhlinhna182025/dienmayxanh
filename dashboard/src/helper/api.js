@@ -797,3 +797,45 @@ export const updateProduct = async (id, data) => {
     };
   }
 };
+//Order
+
+export const getAllOrder = async () => {
+  try {
+    const response = await axios({
+      url: `${baseUrl}/v1/api/order/all`,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.statusText !== "OK") {
+      throw new Error("Server Error");
+    }
+    return response.data.orders;
+  } catch (error) {
+    console.log(error);
+    return {
+      error: error.response ? error.response.data.message : error.message,
+    };
+  }
+};
+export const getOneOrder = async (id) => {
+  try {
+    const response = await axios({
+      url: `${baseUrl}/v1/api/order/${id}`,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.statusText !== "OK") {
+      throw new Error("Server Error");
+    }
+    return response.data.order;
+  } catch (error) {
+    console.log(error);
+    return {
+      error: error.response ? error.response.data.message : error.message,
+    };
+  }
+};

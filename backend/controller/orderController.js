@@ -23,7 +23,7 @@ export const getOneOrder = catchAsyncError(async (req, res, next) => {
   });
   res.status(200).json({ success: true, order });
 });
-// Get One Order
+// Get All Order
 export const getAllOrder = catchAsyncError(async (req, res, next) => {
   const orders = await OrderModel.find().populate({
     path: "orderItems.product",
@@ -36,31 +36,18 @@ export const deleteOrder = catchAsyncError(async (req, res, next) => {
   await OrderModel.findByIdAndDelete(id);
   res.status(200).json({ success: true, message: "Đã xóa" });
 });
-// getVnPayOrder
-export const getVnPayOrder = catchAsyncError(async (req, res, next) => {
-  res.render("orderlist", { title: "Danh sách đơn hàng" });
-});
-export const createPayOrder = catchAsyncError(async (req, res, next) => {
-  const date = new Date();
-  var desc =
-    "Thanh toan don hang thoi gian: " +
-    dayjs(date).format("DD/MM/YYYY HH:mm:ss");
-  res.render("order", {
-    title: "Tạo mới đơn hàng",
-    amount: 10000,
-    description: desc,
-  });
-});
-export const createPaymentOrder = catchAsyncError(async (req, res, next) => {
+
+export const createPaymentUrl = catchAsyncError(async (req, res, next) => {
   try {
     var ipAddr = req.socket.remoteAddress;
     var tmnCode = config.tmnCode;
     var secretKey = config.secretKey;
     var vnpUrl = config.vnpUrl;
     var returnUrl = config.returnUrl;
+    console.log(returnUrl);
     const date = new Date();
     var createDate = dayjs(date).format("YYYYMMDDHHmmss");
-    var orderId = dayjs(date).format("HH:mm:ss");
+    var orderId = req.body.orderId;
     var amount = req.body.amount;
     var bankCode = req.body.bankCode;
     var orderInfo = req.body.orderDescription;
@@ -117,24 +104,51 @@ function sortObject(obj) {
   return sorted;
 }
 
-export const orderReturn = catchAsyncError(async (req, res, next) => {
+export const vnpayReturn = catchAsyncError(async (req, res, next) => {
+  try {
+    var vnp_Params = req.query;
+    var secureHash = vnp_Params["vnp_SecureHash"];
+    delete vnp_Params["vnp_SecureHash"];
+    delete vnp_Params["vnp_SecureHashType"];
+    vnp_Params = sortObject(vnp_Params);
+    var secretKey = config.secretKey;
+    var signData = querystring.stringify(vnp_Params, { encode: false });
+    var signed = crypto
+      .createHmac("sha512", secretKey)
+      .update(Buffer.from(signData, "utf-8"))
+      .digest("hex");
+    if (secureHash === signed) {
+      //Kiem tra xem du lieu trong db co hop le hay khong va thong bao ket qua
+      const orderId = vnp_Params["vnp_TxnRef"];
+      const order = await OrderModel.findById(orderId);
+      const amount = parseInt(vnp_Params["vnp_Amount"]) / 100;
+      var checkout = config.checkout;
+      res.redirect(checkout);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+export const vnpayIpn = catchAsyncError(async (req, res, next) => {
   var vnp_Params = req.query;
-
   var secureHash = vnp_Params["vnp_SecureHash"];
-
   delete vnp_Params["vnp_SecureHash"];
   delete vnp_Params["vnp_SecureHashType"];
-
   vnp_Params = sortObject(vnp_Params);
-  var tmnCode = config.get("vnp_TmnCode");
-  var secretKey = config.get("vnp_HashSecret");
+  var secretKey = config.secretKey;
   var signData = querystring.stringify(vnp_Params, { encode: false });
-  var hmac = crypto.createHmac("sha512", secretKey);
-  var signed = hmac.update(Buffer.from(signData, "utf-8").toString("hex"));
+  var signed = crypto
+    .createHmac("sha512", secretKey)
+    .update(Buffer.from(signData, "utf-8"))
+    .digest("hex");
   if (secureHash === signed) {
-    //Kiem tra xem du lieu trong db co hop le hay khong va thong bao ket qua
-    res.render("success", { code: vnp_Params["vnp_ResponseCode"] });
+    var orderId = vnp_Params["vnp_TxnRef"];
+    var rspCode = vnp_Params["vnp_ResponseCode"];
+    const order = await OrderModel.findById(orderId);
+    console.log(order);
+    //Kiem tra du lieu co hop le khong, cap nhat trang thai don hang va gui ket qua cho VNPAY theo dinh dang duoi
+    res.status(200).json({ RspCode: "00", Message: "success" });
   } else {
-    res.render("success", { code: "97" });
+    res.status(200).json({ RspCode: "97", Message: "Fail checksum" });
   }
 });

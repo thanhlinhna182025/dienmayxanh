@@ -89,7 +89,7 @@ const SubcategoryCreateScreen = {
                 <form class="form__container fw" id="supplier-form">
                     <div class="form__wrapper">
                         <div class="form__group-item">
-                            <input class="fw form__input" type="text" id="sub-name" required/>
+                            <input class="fw form__input" type="text" id="sub-name" required autocomplete="off"/>
                             <label class="label-position" for="sub-name" >Tên danh mục:</label>
                         </div>
                         <div class="form__group">

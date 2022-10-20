@@ -24,10 +24,12 @@
     @include tablet {
       margin-bottom: 1rem;
     }
+    @include destop {
+      align-items: flex-start;
+    }
 
     .logo {
       img {
-        width: 10rem;
         object-fit: cover;
         display: block;
       }
@@ -37,6 +39,10 @@
       border: 1px solid rgba(168, 208, 255, 0.38);
       border-radius: 0.5rem;
       color: #fff;
+      @include destop {
+        padding: 0;
+        border: none;
+      }
     }
 
     .search__form {
@@ -85,6 +91,9 @@
       @include ipad {
         display: none;
       }
+      @include destop {
+        align-items: flex-start;
+      }
     }
   }
   .bordercol {
@@ -99,7 +108,8 @@
     width: 100%;
     .header__bottom-container {
       .header__menu {
-        @include flex-row();
+        @include flex-row($justify: flex-start);
+        gap: 3rem;
         @include mobile {
           justify-content: flex-start;
           gap: 1rem;

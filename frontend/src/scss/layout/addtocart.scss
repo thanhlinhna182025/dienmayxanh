@@ -42,7 +42,6 @@
 .image__container {
   width: 10rem;
   padding: 0.5rem;
-  @include border();
   border-radius: 3px;
   img {
     width: 100%;

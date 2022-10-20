@@ -125,11 +125,11 @@ const PromotionCreateScreen = {
                 <form class="form__container fw" id="supplier-form">
                     <div class="form__wrapper">
                         <div class="form__group-item">
-                            <input class="fw form__input" type="text" id="pr-name" required/>
+                            <input class="fw form__input" type="text" id="pr-name" required autocomplete="off"/>
                             <label class="label-position" for="pr-name" >Tên chương trình:</label>
                         </div>
                         <div class="form__group-item">
-                            <input class="fw form__input" type="number"  id="pr-discount" required/>
+                            <input class="fw form__input" type="number"  id="pr-discount" required autocomplete="off"/>
                             <label class="label-position" for="pr-discount" id="pr-discount-label">% Khuyến mãi</label>
                         </div>
                         <div class="form__group-item">

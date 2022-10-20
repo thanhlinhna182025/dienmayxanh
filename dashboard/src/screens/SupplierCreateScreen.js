@@ -117,15 +117,15 @@ const SupplierCreateScreen = {
                 <form class="form__container fw" id="supplier-form">
                     <div class="form__wrapper">
                         <div class="form__group-item">
-                            <input class="fw form__input" type="text" id="s-name" required/>
+                            <input class="fw form__input" type="text" id="s-name" required autocomplete="off"/>
                             <label class="label-position" for="s-name" >Tên nhà cung cấp:</label>
                         </div>
                         <div class="form__group-item">
-                            <input class="fw form__input" type="text" id="s-phone" required/>
+                            <input class="fw form__input" type="text" id="s-phone" required autocomplete="off"/>
                             <label class="label-position" for="s-phone" >Số điện thoại:</label>
                         </div>
                         <div class="form__group-item">
-                            <input class="fw form__input" type="text" id="s-taxcode" required/>
+                            <input class="fw form__input" type="text" id="s-taxcode" required autocomplete="off"/>
                             <label class="label-position" for="s-taxcode" >Mã số thuế:</label>
                         </div>
                         <div class="form__group">

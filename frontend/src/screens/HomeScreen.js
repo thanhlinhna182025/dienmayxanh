@@ -26,9 +26,9 @@ const HomeScreen = {
         prevEl: ".swiper-button-prev",
       },
       centeredSlides: false,
-      autoplay: {
-        delay: 2000,
-      },
+      // autoplay: {
+      //   delay: 2000,
+      // },
       breakpoints: {
         576: {
           slidesPerView: 1,

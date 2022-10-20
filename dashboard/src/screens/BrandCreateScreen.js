@@ -104,7 +104,7 @@ const BrandCreateScreen = {
                 <form class="form__container fw" id="supplier-form">
                     <div class="form__wrapper">
                         <div class="form__group-item">
-                            <input class="fw form__input" type="text" id="brand-name" required/>
+                            <input class="fw form__input" type="text" id="brand-name" required autocomplete="off"/>
                             <label class="label-position" for="brand-name" >Tên thương hiệu:</label>
                         </div>
                         <div class="form__group">

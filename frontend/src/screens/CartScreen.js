@@ -295,9 +295,9 @@ const CartScreen = {
       if (flag) {
         const res = await createOrder(order);
         if (res.success) {
+          setCartItems([]);
           const id = res.order._id;
           redirect(`/#/order/${id}`);
-          setCartItems([]);
         }
       }
     });

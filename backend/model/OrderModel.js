@@ -71,10 +71,12 @@ const orderSchema = new mongoose.Schema(
     orderStatus: {
       type: String,
       required: true,
+      enum: ["Processing", "Delivering", "Delivered"],
       default: "Processing",
     },
     deliveredAt: Date,
-    paidAt: Date,
+    isPay: { type: Boolean, default: false },
+    isPayAt: Date,
   },
   { timestamps: true }
 );

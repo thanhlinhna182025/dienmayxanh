@@ -89,7 +89,7 @@ const CategoryCreateScreen = {
                 <form class="form__container fw" id="supplier-form">
                     <div class="form__wrapper">
                         <div class="form__group-item">
-                            <input class="fw form__input" type="text" id="cat-name" required/>
+                            <input class="fw form__input" type="text" id="cat-name" required autocomplete="off"/>
                             <label class="label-position" for="cat-name" >Tên hạng mục:</label>
                         </div>
                     </div>

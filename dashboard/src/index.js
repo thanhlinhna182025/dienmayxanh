@@ -1,5 +1,6 @@
 import "./scss/style.scss";
 import { parseRequestUrl } from "./helper/ultils";
+
 import DashBoardScreen from "./screens/DashBoardScreen";
 import SideBarScreen from "./screens/SibarScreen";
 import ChartScreen from "./screens/ChartScreen";
@@ -24,6 +25,8 @@ import PromotionEditScreen from "./screens/PromotionEditScreen";
 import ProductCreateScreen from "./screens/ProductCreateScreen";
 import ProductScreen from "./screens/ProductScreen";
 
+import OrderScreen from "./screens/OrderScreen";
+
 const routes = {
   "/": DashBoardScreen,
   "/chart": ChartScreen,
@@ -47,6 +50,8 @@ const routes = {
 
   "/product-create": ProductCreateScreen,
   "/product": ProductScreen,
+
+  "/order": OrderScreen,
 };
 
 const router = async () => {

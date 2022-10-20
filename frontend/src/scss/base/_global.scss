@@ -1,6 +1,22 @@
 @use "../abstracts/" as *;
 @use "../base/color" as *;
 
+.main {
+  padding: 0 5rem;
+  @include mobile {
+    padding: 0;
+  }
+  @include tablet {
+    padding: 0;
+  }
+  @include ipad {
+    padding: 0;
+  }
+  @include destop {
+    padding: 0;
+  }
+}
+
 .form__group-global {
   position: relative;
   .label-position {
@@ -57,15 +73,6 @@ input[type="radio"] {
 
 .container {
   width: 100%;
-}
-.main {
-  padding: 0 5rem;
-  @include mobile {
-    padding: 0;
-  }
-  @include tablet {
-    padding: 0;
-  }
 }
 .product__screen {
   padding: 2rem 5rem;

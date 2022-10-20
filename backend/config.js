@@ -6,6 +6,7 @@ const config = {
   secretKey: process.env.vnp_HashSecret,
   vnpUrl: process.env.vnp_Url,
   returnUrl: process.env.vnp_ReturnUrl,
+  checkout: process.env.checkout,
 };
 
 export default config;

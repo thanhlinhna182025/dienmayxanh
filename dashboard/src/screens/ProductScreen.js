@@ -134,7 +134,7 @@ const ProductScreen = {
         <div class="top">
             <a class="btn" href="/#/product-create">Tạo Sản Phẩm Mới</a>
             <div class="search__container">
-              <input id="input__search"/>
+              <input id="input__search" autocomplete="off"/>
               <i class="fa-solid fa-magnifying-glass" id="search"></i>
             </div>
         </div>

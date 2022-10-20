@@ -80,19 +80,19 @@ const SupplierStopScreen = {
                 <form class="form__container fw" id="supplier-form">
                     <div class="form__wrapper">
                         <div class="form__group-item">
-                            <input class="fw form__input" type="text" id="s-name" required value="${
+                            <input class="fw form__input" type="text" id="s-name" required autocomplete="off" value="${
                               supplier.name
                             }"/>
                             <label class="label-position" for="s-name" >Tên nhà cung cấp:</label>
                         </div>
                         <div class="form__group-item">
-                            <input class="fw form__input" type="text" id="s-phone" required value="${
+                            <input class="fw form__input" type="text" id="s-phone" autocomplete="off" required value="${
                               supplier.phone
                             }"/>
                             <label class="label-position" for="s-phone" >Số điện thoại:</label>
                         </div>
                         <div class="form__group-item">
-                            <input class="fw form__input" type="text" id="s-taxcode" required value="${
+                            <input class="fw form__input" type="text" id="s-taxcode" autocomplete="off" required value="${
                               supplier.taxcode
                             }"/>
                             <label class="label-position" for="s-taxcode" >Mã số thuế:</label>

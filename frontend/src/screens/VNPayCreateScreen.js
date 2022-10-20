@@ -4,6 +4,20 @@ import { parseRequestUrl, redirect, baseUrl } from "../helper/ultil";
 
 const VNPayCreateScreen = {
   after_render: () => {
+    $(async function () {
+      try {
+        const res = await axios.get({
+          url: `${baseUrl}/v1/api/order/vnpay_return`,
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        console.log(res);
+      } catch (error) {
+        console.log(error);
+      }
+    });
     $("#btn-accept-payment").on("click", async function (e) {
       e.preventDefault();
       const data = {

@@ -6,7 +6,7 @@ import { formatVND } from "../helper/ultil";
 const Promotion = {
   render: async () => {
     const subcategories = await getAllSubcategory();
-    const id = "6347f174baf10d0431a80418";
+    const id = "6347f1e3baf10d0431a8041c";
     const { productsof } = await getOnePromotion(id);
     return `
         <div class="promotion">

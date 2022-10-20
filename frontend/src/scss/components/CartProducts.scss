@@ -2,15 +2,22 @@
 @use "../base/" as *;
 .product {
   background-color: #fff;
-  padding: 0.5rem;
+  padding: 1rem 0.5rem;
   @include border();
   @include flex-col($justify: flex-start);
+  @include s-shadow();
   gap: 3rem;
   border-radius: 0.5rem;
   height: 100%;
+  width: 23rem;
+  box-sizing: border-box;
   .cartproduct__image-container {
     height: 22rem;
     @include flex-row();
+    transition: all linear 0.3s;
+    &:hover {
+      transform: translateY(-5px);
+    }
     img {
       width: 100%;
       object-fit: cover;
@@ -20,7 +27,6 @@
     @include flex-col();
     width: 100%;
     gap: 1rem;
-    height: 17rem;
     .promotion__container {
       @include flex-row($wrap: nowrap, $justify: flex-start);
       width: 100%;

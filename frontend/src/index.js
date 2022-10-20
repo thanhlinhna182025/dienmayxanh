@@ -10,6 +10,7 @@ import AddToCartScreen from "./screens/AddToCartScreen";
 import OrderScreen from "./screens/OrderScreen";
 import { hideLoading, showLoading } from "./helper/ultil";
 import VNPayScreen from "./screens/VNPayCreateScreen";
+import VNPAYResultScreen from "./screens/VNPAYResultScreen";
 
 const routes = {
   "/": HomeScreen,
@@ -17,18 +18,26 @@ const routes = {
   "/product/:id/add": AddToCartScreen,
   "/cart": CartScreen,
   "/order/:id": OrderScreen,
+  "/checkout": VNPAYResultScreen,
   "/vnpay/:id": VNPayScreen,
 };
 
 const router = async () => {
   showLoading();
   const request = parseRequestUrl();
+
   const parseUrl =
     (request.resource ? `/${request.resource}` : "/") +
     (request.id ? "/:id" : "") +
     (request.verb ? `/${request.verb}` : "");
   $("#header").html(await HeaderScreen.render());
-  const screen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
+  let screen;
+  if (parseUrl === "/checkout") {
+    screen = VNPAYResultScreen;
+  } else {
+    screen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
+  }
+
   $("#main").html(await screen.render());
   if (screen.after_render) {
     await screen.after_render();

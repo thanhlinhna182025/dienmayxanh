@@ -5,20 +5,18 @@ import {
   getOneOrder,
   getAllOrder,
   deleteOrder,
-  getVnPayOrder,
-  createPayOrder,
-  createPaymentOrder,
-  orderReturn,
+  vnpayReturn,
+  createPaymentUrl,
+  vnpayIpn,
 } from "../controller/orderController";
 
 const orderRoute = express.Router();
 orderRoute.post("/", createOrder);
-orderRoute.get("/create_payment_url", createPayOrder);
-orderRoute.get("/vnpay_return", orderReturn);
-orderRoute.post("/create_payment_url", createPaymentOrder);
+orderRoute.get("/checkout/vnp_ReturnUrl", vnpayReturn);
+orderRoute.post("/create_payment_url", createPaymentUrl);
+orderRoute.get("/vnpay_ipn", vnpayIpn);
+orderRoute.get("/all", getAllOrder);
 orderRoute.get("/:id", getOneOrder);
 orderRoute.put("/:id", deleteOrder);
-orderRoute.get("/all", getAllOrder);
-orderRoute.get("/", getVnPayOrder);
 
 export default orderRoute;

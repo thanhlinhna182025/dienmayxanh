@@ -125,7 +125,7 @@ const CategoryEditScreen = {
                 <form class="form__container fw" id="supplier-form">
                     <div class="form__wrapper">
                         <div class="form__group-item">
-                            <input class="fw form__input" type="text" id="cat-name" required value="${
+                            <input class="fw form__input" type="text" id="cat-name" required autocomplete="off" value="${
                               category?.name
                             }"/>
                             <label class="label-position" for="cat-name" >Tên hạng mục:</label>
