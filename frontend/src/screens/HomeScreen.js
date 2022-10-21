@@ -8,12 +8,13 @@ import Trending from "../components/Trending";
 import FeatureCategory from "../components/FeatureCategory";
 import SliderPay from "../components/SliderPay";
 import SearchMost from "../components/SearchMost";
-import { countDownTimer } from "../../../dashboard/src/helper/ultils";
+import { countDownTimer } from "../helper/ultil";
 
 const HomeScreen = {
   after_render: async () => {
     $(function () {
-      countDownTimer();
+      const timerID = countDownTimer("timer");
+      localStorage.setItem("timerID", timerID);
     });
     var swiper = new Swiper(".mySwiper", {
       modules: [Navigation, Pagination, Autoplay],

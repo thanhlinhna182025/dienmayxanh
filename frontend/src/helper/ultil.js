@@ -319,6 +319,7 @@ export const updateBodyTable = (products = []) => {
     .join("");
   $("#tbody").html(html);
 };
+
 export const updatePagination = (pages) => {
   const pagination = Array.from({ length: pages }, (_, i) => i + 1);
   $("#pagination").html = "";
@@ -353,6 +354,41 @@ export const formatVND = (num) => {
     style: "currency",
     currency: "VND",
   }).format(num);
+};
+export const countDownTimer = (id) => {
+  const countDownDate = new Date("October 30, 2022 00:00:00").getTime();
+  const timerId = setInterval(function () {
+    // Lấy ngày giờ hiện tại
+    const now = new Date().getTime();
+    // Tính thời lượng giữa ngày hiện tại và thời gian thực hiện
+    const distance = countDownDate - now;
+    // Tính số ngày
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    // Tính số giờ
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    // Tính số phút
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    // Tính số giây
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    //Hiện thị ra giao diện qua id truyền vào
+    document.getElementById(
+      id
+    ).innerHTML = `<div class="days">${days}days</div> <div class="hours">${hours}hours</div> <div class="minutes">${minutes}min</div> <div class="seconds" >${seconds}s</div>`;
+    // Nếu ngày vượt qua thì hiện thị
+    if (distance < 0) {
+      clearInterval(timerId);
+      document.getElementById("count__down-timer").innerHTML = "Đã kết thúc";
+    }
+  }, 1000);
+  return timerId;
+};
+export const removeTimerID = () => {
+  const timerID = localStorage.getItem("timerID");
+  clearInterval(timerID);
+  localStorage.removeItem("timerID");
 };
 
 // const dropdownCity = document.getElementById("dropdownCity");

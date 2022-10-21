@@ -1,11 +1,13 @@
 import SingleProduct from "../components/SingleProduct";
 import Swiper, { Navigation, Pagination, Autoplay, EffectCards } from "swiper";
-import { parseRequestUrl } from "../helper/ultil";
+import { parseRequestUrl, removeTimerID } from "../helper/ultil";
 import { getOneProduct, PF } from "../helper/api";
+
 
 const ProductScreen = {
   after_render: () => {
     $(async function () {
+      removeTimerID()
       const { id } = parseRequestUrl();
       const product = await getOneProduct(id);
       const images = product.images;

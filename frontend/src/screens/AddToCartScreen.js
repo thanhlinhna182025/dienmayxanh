@@ -1,10 +1,6 @@
 import { getOneProduct, PF } from "../helper/api";
 import ChonsenQuantity from "../components/ChosenQuantity";
-import {
-  formatVND,
-  parseRequestUrl,
-  redirect,
-} from "../helper/ultil";
+import { formatVND, parseRequestUrl, redirect } from "../helper/ultil";
 import { getCartItems, setCartItems } from "../helper/localStorage";
 
 const AddToCartScreen = {
